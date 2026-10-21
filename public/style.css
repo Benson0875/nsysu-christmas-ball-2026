@@ -226,3 +226,76 @@ html:lang(en) .art-date-venue{font-size:2.6cqw}
  .hero-quicklink{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;flex:0 0 108px;color:var(--gold);font-size:12px;line-height:1.5;border-bottom:1px solid var(--gold)}
  .hero-quicklink>span{font-size:18px}
 }
+
+/* Editorial scale and immersive artwork. Keep the illustrated palette. */
+body{font-size:18px}
+.wrap{width:min(1600px,calc(100% - var(--space)*2))}
+.nav-shell{width:calc(100% - 64px);max-width:1800px}
+.site-nav a,.language-switch{font-size:16px}
+.brand small{font-size:11px}
+.eyebrow{font-size:14px}
+.text-link,.button{font-size:17px}
+.button{min-height:58px}
+.hero-topline{font-size:15px;letter-spacing:.035em}
+.hero-quicklink{font-size:16px}
+.panorama-shell{max-width:none;width:calc(100% - 32px);border:0}
+.panorama{isolation:isolate}
+.art-panel:not(:first-child){width:104%;margin-left:-4%;mask-image:linear-gradient(to right,transparent,#000 4%)}
+.art-panel>img{height:100%;aspect-ratio:4/5;object-fit:fill}
+.art-date{border:0;box-shadow:none;background:none;isolation:isolate;left:1%;width:47%}
+.art-date::before{content:'';position:absolute;inset:-5% -5% -8%;z-index:-1;background:#1c2946;box-shadow:0 0 3cqw 2cqw #1c2946;border-radius:35%}
+.art-open{font-size:14px;min-height:44px}
+.hero-caption{padding-block:45px 70px}
+.hero-caption h1{font-size:clamp(48px,4.6vw,88px)}
+html:lang(en) .hero-caption h1{font-size:clamp(44px,4.3vw,78px)}
+.hero-copy>p,.invitation-copy>p,.intro-copy{font-size:21px}
+h2{font-size:clamp(36px,3.7vw,62px)}
+.feature-list li{font-size:23px}
+.status{font-size:16px}
+.section-heading h2{font-size:30px}
+.program-list p,.partnership-detail p,.partners-empty p,.partner-card p,.faq details>p{font-size:18px}
+.program-name h3,.partnership-detail h3{font-size:28px}
+.faq summary{font-size:20px}
+.fine-print,figcaption,.footer-brand>span,.footer-info,.footer-bottom,.organizers li,.partnership-band p:not(.eyebrow){font-size:15px}
+.event-details dt,.ticket-heading,.ticket-bottom,.program-name>span{font-size:14px}
+.event-details dd{font-size:25px}
+.location .address{font-size:18px}
+.partnership-band h2{font-size:36px}
+/* A single gallery composition rather than a row of photo cards. */
+.archive{background:var(--deep);color:var(--ink);padding:16px}
+.archive-scene{display:grid;grid-template-columns:1.65fr 1fr;position:relative;isolation:isolate}
+.archive-large{grid-column:1;grid-row:1;position:relative;min-height:760px;overflow:hidden}
+.archive-large img{width:100%;height:100%;object-fit:cover;object-position:center;position:absolute;inset:0}
+.archive-large::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,27,46,.95),rgba(17,27,46,.6) 22%,transparent 53%,rgba(17,27,46,.7))}
+.archive-large figcaption{position:absolute;bottom:28px;left:5%;right:5%;color:var(--ink);z-index:1;font-size:15px}
+.archive-top{grid-column:1;grid-row:1;z-index:1;align-self:start;display:block;margin:0;padding:48px 7%;pointer-events:none}
+.archive .eyebrow{color:var(--gold)}
+.archive-top h2{font-size:clamp(42px,4.4vw,80px);line-height:1.4}
+.archive-aside{grid-column:2;grid-row:1;align-self:stretch;background:#d0b47d;color:var(--deep);padding:50px 10%;display:flex;flex-direction:column;justify-content:center;gap:30px}
+.archive-year{font-family:var(--serif);font-size:clamp(50px,6vw,100px);line-height:1.1;letter-spacing:-.04em;border-bottom:1px solid #8b754f;padding-bottom:26px}
+.archive-aside>p{font-size:20px;line-height:1.9}
+.archive-small{width:calc(100% + 22%);margin:8px 0 0 -22%;position:relative;z-index:2}
+.archive-small img{width:100%;aspect-ratio:1.5;object-fit:cover;mask-image:linear-gradient(180deg,#000 88%,transparent)}
+.archive-small figcaption{color:var(--deep);font-size:13px;margin-top:4px;letter-spacing:.13em;text-align:right}
+.archive-aside .text-link{align-self:flex-start;border-color:var(--deep)}
+.archive-aside .text-link:hover{color:var(--deep)}
+.button>span,.text-link>span{transition:transform .25s ease}
+.button:hover>span,.text-link:hover>span{transform:translate(3px,-3px)}
+.archive-large img{transition:transform 1.2s cubic-bezier(.2,.65,.3,1)}
+.archive-large:hover img{transform:scale(1.025)}
+@keyframes gallery-arrival{from{transform:translateY(18px)}to{transform:translateY(0)}}
+.motion-arrive{animation:gallery-arrival .8s cubic-bezier(.2,.65,.3,1) both}
+@media(max-width:1100px){.nav-shell{gap:16px}.site-nav{gap:16px}.site-nav a{font-size:14px}.hero-facts{gap:4px 18px}.archive-large{min-height:680px}.archive-aside{padding:36px 9%}.archive-aside>p{font-size:18px}.archive-top{padding-top:36px}}
+@media(max-width:800px){
+ .nav-shell{width:calc(100% - 32px)}.brand small{font-size:9px}.site-nav a{font-size:17px}.hero-facts{font-size:13px}.hero-quicklink{font-size:14px;flex-basis:110px}.hero-topline{gap:16px}.hero-caption h1,html:lang(en) .hero-caption h1{font-size:48px}.hero-copy>p,.invitation-copy>p,.intro-copy{font-size:19px}
+ .archive-scene{grid-template-columns:1.25fr 1fr}.archive-top h2{font-size:40px}.archive-large{min-height:680px}.archive-aside{padding:30px 9%;gap:24px}.archive-aside>p{font-size:17px}.archive-year{font-size:64px}
+}
+@media(max-width:700px){
+ body{font-size:17px}.panorama-shell{width:calc(100% - 16px)}.hero-topline{width:calc(100% - 32px)}.hero-facts{font-size:12px}.hero-quicklink{font-size:13px;flex-basis:100px}.hero-caption h1{font-size:42px}html:lang(en) .hero-caption h1{font-size:42px}.hero-copy>p{font-size:18px}.hero-actions .status{font-size:15px}.art-hint{font-size:13px}.art-open{font-size:13px}
+ h2,.archive-top h2{font-size:36px}.feature-list li{font-size:21px}.eyebrow{font-size:13px}.page-intro .intro-copy{font-size:18px}.program-list p,.faq details>p,.partnership-detail p{font-size:17px}.program-name h3{font-size:23px}.faq summary{font-size:18px}.event-details dd{font-size:22px}.ticket-heading{font-size:11px}
+ .archive{padding:8px}.archive-scene{grid-template-columns:1fr}.archive-large{grid-column:1;grid-row:1;min-height:540px}.archive-top{padding:28px 24px}.archive-top h2{font-size:38px}.archive-top .eyebrow{margin-bottom:12px}.archive-large img{object-position:48% center}.archive-large::after{background:linear-gradient(180deg,rgba(17,27,46,.95),rgba(17,27,46,.5) 26%,transparent 55%,rgba(17,27,46,.65))}.archive-large figcaption{bottom:20px;font-size:13px}
+ .archive-aside{grid-column:1;grid-row:2;padding:32px 24px;gap:24px}.archive-year{font-size:62px}.archive-aside>p{font-size:18px}.archive-small{width:100%;margin:0}.archive-small figcaption{font-size:12px}.partnership-band h2{font-size:30px}.footer-bottom{font-size:12px}.footer-brand>span{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.archive-large:hover img{transform:none}.motion-arrive{animation:none}.button:hover>span,.text-link:hover>span{transform:none}}
+
+@media(max-width:700px){.hero-quicklink{flex-basis:116px;white-space:nowrap}}

@@ -19,6 +19,17 @@
   const mobile = matchMedia('(max-width: 800px)');
   mobile.addEventListener('change',()=>closeMenu());
 
+  // Content stays readable without JavaScript. Animate only the first entrance.
+  const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) if (entry.isIntersecting) {
+        if (!motionPreference.matches) entry.target.classList.add('motion-arrive');
+        observer.unobserve(entry.target);
+      }
+    }, {threshold: .12});
+    document.querySelectorAll('.hero-caption,.archive-aside').forEach(el => observer.observe(el));
+  }
   const scroller = document.querySelector('.panorama-scroll');
   const dialog = document.querySelector('.art-dialog');
   if(scroller) {
@@ -26,7 +37,12 @@
     const artMobile = matchMedia('(max-width: 700px)');
     let artInteracted = false;
     scroller.addEventListener('pointerdown',()=>{artInteracted = true;},{once:true});
-    const center = () => {scroller.scrollTo({left:artMobile.matches ? (scroller.scrollWidth-scroller.clientWidth)/2 : 0,behavior:'instant'});};
+    const center = () => {
+      const middle = scroller.querySelectorAll('.art-panel')[1];
+      const left = middle.getBoundingClientRect().left - scroller.getBoundingClientRect().left + scroller.scrollLeft + (middle.clientWidth - scroller.clientWidth)/2;
+      scroller.scrollTo({left:artMobile.matches ? left : 0,behavior:'instant'});
+    };
+    document.fonts.ready.then(()=>{if(!artInteracted) requestAnimationFrame(center);});
     requestAnimationFrame(center);
     window.addEventListener('load',()=>{if(!artInteracted) center();},{once:true});
     artMobile.addEventListener('change',center);
