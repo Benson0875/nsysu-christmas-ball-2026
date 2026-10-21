@@ -17,7 +17,10 @@ for (const width of [375,390,768,1440]) {
         await page.locator('h1').waitFor();
         expect(await page.locator('h1').count()).toBe(1);
         expect(await page.locator('html').getAttribute('lang')).toBe(locale==='zh'?'zh-Hant':'en');
-        if(route==='index') await expect(page.locator('.hero-quicklink')).toBeInViewport();
+        if(route==='index') {
+          await expect(page.locator('.hero-quicklink')).toBeInViewport();
+          if(width<700) await expect.poll(()=>page.locator('.panorama-scroll').evaluate(el=>el.scrollLeft)).toBeGreaterThan(150);
+        }
         const layout=await page.evaluate(()=>({view:innerWidth,body:document.documentElement.scrollWidth, clipped:[...document.querySelectorAll('h1,h2,h3,p,dd,summary,.button,.text-link')].filter(el=>el.getClientRects().length&&!el.closest('dialog')).filter(el=>el.scrollWidth>el.clientWidth+2).map(el=>el.textContent)}));
         expect(layout.body).toBeLessThanOrEqual(layout.view+1);
         expect(layout.clipped).toEqual([]);
@@ -32,6 +35,7 @@ for (const width of [375,390,768,1440]) {
         expect(errors).toEqual([]);
         if(route==='index' && [390,1440].includes(width)) {
           await mkdir('docs/screenshots',{recursive:true});
+          await page.evaluate(()=>Promise.all([...document.images].map(img=>img.decode().catch(()=>{}))));
           await page.screenshot({path:`docs/screenshots/home-${locale}-${width}.png`,fullPage:true});
         }
       });
@@ -112,3 +116,12 @@ for(const locale of ['zh','en']) for(const route of routes) {
     expect(result.violations).toEqual([]);
   });
 }
+
+for (const width of [1920,2560]) test(`wide hero keeps small margins at ${width}px`,async({page})=>{
+  await page.setViewportSize({width,height:1080});
+  await page.goto('index.html');
+  const box=await page.locator('.panorama-shell').boundingBox();
+  expect(box.x).toBe(16);
+  expect(box.width).toBe(width-32);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBe(width);
+});
