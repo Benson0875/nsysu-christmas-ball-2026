@@ -163,6 +163,22 @@ export const copy = {
   },
 };
 
+// Headings use punctuation-free editorial copy. Event names in prose stay intact.
+for (const locale of ['zh', 'en']) {
+  const t = copy[locale];
+  for (const key of ['homeEyebrow','homeHeading','archiveTitle','homeBannerTitle','eveningTitle','visitTitle','faqTitle','partnerTitle']) {
+    t[key] = t[key].replace(/[，。、,.!?！？]/g, '');
+  }
+  t.heroLine = t.heroLine.map(line => line.replace(/[,，]/g, ''));
+  t.faqs = t.faqs.map(([q,a]) => [q.replace(/[，,?？]/g, ''),a]);
+}
+copy.zh.stages[2][1] = '遊戲抽獎與合舞';
+copy.en.stages[2][1] = 'Games and dancing';
+copy.zh.galleryTitle = '現場照片';
+copy.zh.galleryBody = '活動結束後，我們會在這裡展示當晚的現場照片。';
+copy.en.galleryTitle = 'Photos from the evening';
+copy.en.galleryBody = 'Photos from this year’s event will be shared here after the ball.';
+
 // Keep every public date and time label tied to the same configuration.
 const [year, month, day] = event.dateISO.split('-').map(Number);
 const date = new Date(`${event.dateISO}T12:00:00+08:00`);

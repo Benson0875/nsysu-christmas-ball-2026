@@ -18,7 +18,7 @@ for (const width of [375,390,768,1440]) {
         expect(await page.locator('h1').count()).toBe(1);
         expect(await page.locator('html').getAttribute('lang')).toBe(locale==='zh'?'zh-Hant':'en');
         if(route==='index') {
-          await expect(page.locator('.hero-quicklink')).toBeInViewport();
+          await expect(page.locator('.hero-topline')).toHaveCount(0);
           if(width<700) await expect.poll(()=>page.locator('.panorama-scroll').evaluate(el=>el.scrollLeft)).toBeGreaterThan(150);
         }
         const layout=await page.evaluate(()=>({view:innerWidth,body:document.documentElement.scrollWidth, clipped:[...document.querySelectorAll('h1,h2,h3,p,dd,summary,.button,.text-link')].filter(el=>el.getClientRects().length&&!el.closest('dialog')).filter(el=>el.scrollWidth>el.clientWidth+2).map(el=>el.textContent)}));
@@ -27,6 +27,9 @@ for (const width of [375,390,768,1440]) {
         const text=await page.locator('body').innerText();
         expect(text).not.toMatch(/[;；\-]/);
         expect(text).not.toContain('12.26');
+        expect(text).not.toMatch(/臺灣時間|Taiwan time/);
+        for(const heading of await page.locator('h1,h2,h3,.eyebrow').allTextContents()) expect(heading).not.toMatch(/[，。、,.!?！？’]/);
+        if(route==='partners') await expect(page.locator('.partner-event-photo img')).toBeVisible();
         expect(await page.locator('a[href="#"]').count()).toBe(0);
         await page.evaluate(()=>{for(const img of document.images)img.loading='eager';});
         await expect.poll(()=>page.evaluate(()=>[...document.images].filter(i=>!i.complete||!i.naturalWidth).length)).toBe(0);
@@ -117,11 +120,13 @@ for(const locale of ['zh','en']) for(const route of routes) {
   });
 }
 
-for (const width of [1920,2560]) test(`wide hero keeps small margins at ${width}px`,async({page})=>{
+for (const width of [1920,2560]) test(`wide hero scales proportionally at ${width}px`,async({page})=>{
   await page.setViewportSize({width,height:1080});
   await page.goto('index.html');
   const box=await page.locator('.panorama-shell').boundingBox();
-  expect(box.x).toBe(16);
-  expect(box.width).toBe(width-32);
+  expect(box.width).toBe(1440);
+  expect(box.x).toBe((width-1440)/2);
+  expect(box.height/box.width).toBeGreaterThan(.4);
+  expect(box.height/box.width).toBeLessThan(.45);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBe(width);
 });

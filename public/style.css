@@ -299,3 +299,40 @@ h2{font-size:clamp(36px,3.7vw,62px)}
 @media(prefers-reduced-motion:reduce){.archive-large:hover img{transform:none}.motion-arrive{animation:none}.button:hover>span,.text-link:hover>span{transform:none}}
 
 @media(max-width:700px){.hero-quicklink{flex-basis:116px;white-space:nowrap}}
+
+/* October readability refinement. Scale the full artwork rather than cropping it. */
+.panorama-shell{width:min(1440px,88%);margin:24px auto 0}
+body{font-size:21px}
+.hero-copy>p,.invitation-copy>p,.intro-copy{font-size:25px;line-height:1.9}
+.program-list p,.partnership-detail p,.partners-empty p,.partner-card p,.faq details>p,.archive-aside>p{font-size:22px}
+.text-link,.button,.status{font-size:20px}
+.feature-list li{font-size:27px}
+.site-nav a,.language-switch{font-size:21px}
+.site-nav{gap:32px}
+.nav-shell{min-height:100px}
+.brand{font-size:25px}.brand small{font-size:13px}
+html:lang(en) .brand{font-size:21px}
+.eyebrow{font-size:16px}
+.fine-print,figcaption,.footer-brand>span,.footer-info,.organizers li,.partnership-band p:not(.eyebrow){font-size:18px}
+.footer-bottom{font-size:16px}
+.event-details dt,.program-name>span{font-size:17px}
+.event-details dd{font-size:28px}
+.faq summary{font-size:23px}
+.partners-empty{display:grid;grid-template-columns:1.2fr 1fr;gap:6%;align-items:center;text-align:left;padding:48px 0}
+.partner-event-photo img{width:100%;aspect-ratio:1.35;object-fit:cover;mask-image:linear-gradient(to bottom,#000 85%,transparent)}
+.partner-event-photo figcaption{color:var(--muted);font-size:16px}
+.partner-photo-copy h3{font-size:34px}
+.partner-photo-copy p{margin:0;max-width:none}
+.partner-announcement{border-top:1px solid var(--line);margin-top:36px;padding-top:30px}
+.partner-announcement h3{font-size:26px}
+@media(min-width:801px) and (max-width:1100px){.site-nav{gap:18px}.site-nav a{font-size:18px}.brand,html:lang(en) .brand{font-size:19px}.nav-shell{gap:16px}.language-switch{font-size:18px}}
+@media(max-width:800px){
+ body{font-size:20px}.nav-shell{min-height:86px}.brand{font-size:21px}.brand small{font-size:11px}.site-nav a,.language-switch{font-size:19px}html:lang(en) .brand{font-size:17px}
+ .hero-copy>p,.invitation-copy>p,.intro-copy,.page-intro .intro-copy{font-size:22px}
+ .program-list p,.partnership-detail p,.partners-empty p,.partner-card p,.faq details>p,.archive-aside>p{font-size:20px}.faq summary{font-size:21px}
+ .partners-empty{grid-template-columns:1fr;gap:32px}.partner-event-photo img{aspect-ratio:1.5}.partner-photo-copy h3{font-size:30px}.partner-announcement h3{font-size:25px}
+}
+@media(max-width:700px){
+ .panorama-shell{width:calc(100% - 32px);margin-top:16px}.brand{font-size:20px}.brand img{width:42px;height:42px}.brand small{font-size:10px}html:lang(en) .brand{font-size:16px}html:lang(en) .brand small{font-size:9px}.nav-shell{gap:8px}.nav-controls{gap:8px}.language-switch{font-size:17px;min-width:44px}
+ .hero-copy>p,.invitation-copy>p,.intro-copy,.page-intro .intro-copy{font-size:21px}.hero-actions .status{font-size:18px}.text-link,.button{font-size:19px}.feature-list li{font-size:24px}.eyebrow{font-size:14px}.event-details dd{font-size:24px}.footer-bottom{font-size:14px}.footer-brand>span{font-size:16px}
+}
