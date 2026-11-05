@@ -21,3 +21,9 @@
 字型視覺檢查發現原子集缺少新中文字形，已重製。全形標點亦納入。最終畫面、三個候選首屏與本機瀏覽器證據位於 redesign/screenshots 及 redesign/browser-evidence.json。
 
 本機效能觀察不代表正式環境行動網路成績。尚無真人測試、正式 A/B 流量或報名提升證據，計畫見 redesign/VALIDATION.md。
+
+## Banner 預留展示修訂，v1.1.1.0
+
+首頁合作入口改為三格明確標示的 Banner 預留版位。54 項既有瀏覽器測試通過，八頁 axe 掃描無違規。另以 390 與 1440px 擷取區塊畫面，確認三格、合作連結與說明正常，手機原生鍵盤左右捲動可用。正式合作資料仍為空，未生成品牌名稱或 Logo。
+
+畫面：redesign/banner-preview/390.png、redesign/banner-preview/1440.png。
