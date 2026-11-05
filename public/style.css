@@ -81,3 +81,76 @@ html:lang(en) .hero h1{font-size:clamp(40px,4.2vw,65px);letter-spacing:0;line-he
 @media(max-width:700px){.sponsor-showcase{padding-block:30px 40px}.sponsor-showcase-heading{align-items:start;gap:20px;flex-direction:column;margin-bottom:24px}.sponsor-showcase-heading h2{font-size:28px}.sponsor-showcase-note{font-size:13px;max-width:25em}.sponsor-showcase-heading>.text-link{margin:0}.sponsor-banner-grid{grid-template-columns:1fr;gap:14px}.sponsor-placeholder{aspect-ratio:2.1;padding:28px 18px}.banner-number{top:12px;left:15px}.banner-mark{font-size:22px;margin-bottom:10px}.banner-placeholder-copy>p{font-size:22px}.banner-placeholder-copy>span:last-child{font-size:11px}}
 .sponsor-banner-grid:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
 @media(max-width:700px){.sponsor-banner-grid,.sponsor-banner-grid.has-sponsors{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:88%;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}.sponsor-placeholder,.sponsor-banner-grid .sponsor-banner{scroll-snap-align:start}}
+/* Illustrated invitation pages: use the greenhouse, paper and star motifs from the event art. */
+.visit-editorial-intro{position:relative;padding-block:62px 45px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.visit-editorial-intro h1{font-size:clamp(40px,4.9vw,68px);line-height:1.45;letter-spacing:.04em}
+.visit-editorial-intro p:not(.eyebrow){color:var(--muted);font-size:16px;margin-top:22px;max-width:36em}
+.intro-star{display:flex;align-items:center;justify-content:center;width:170px;height:170px;border:1px solid #dec38d55;border-radius:50%;color:var(--gold);transform:rotate(12deg);margin-right:6%}
+.intro-star svg{width:70px;height:70px}
+.illustrated-prices{display:grid;grid-template-columns:1fr 1.1fr;gap:7%;align-items:center;padding-block:20px 85px}
+.price-scene{position:relative}.price-scene-title{position:relative;z-index:2;margin-bottom:-32px}
+.price-scene-title h2{font-size:40px;letter-spacing:.05em}.price-scene-title>p:last-child{font-size:14px;color:var(--muted);margin-top:12px}
+.price-garden{position:relative;width:83%;margin:0 auto;padding:25px 20px 0}
+.price-garden>img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:48% 48% 0 0;mask-image:linear-gradient(to bottom,#000 65%,transparent 99%)}
+.glasshouse-motif{width:100%;height:100%;color:var(--gold);pointer-events:none}
+.price-garden>.glasshouse-motif{position:absolute;inset:12px 0 0;width:100%;height:100%;opacity:.45;z-index:-1}
+.price-art-date{position:absolute;bottom:30px;right:-22px;color:var(--gold);font:55px/1 var(--serif);text-align:center;letter-spacing:.04em}
+.price-art-date>span{display:block;font:8px/2.8 var(--sans);letter-spacing:.18em}
+.price-invitation{position:relative;background:var(--paper);color:var(--dark);padding:40px 36px;outline:1px solid #9e855a;outline-offset:-12px;border-radius:46% 46% 0 0 / 16% 16% 0 0;box-shadow:0 24px 48px #080f1b44}
+.invitation-heading{display:flex;align-items:center;justify-content:center;gap:16px;font-size:11px;letter-spacing:.12em;color:#79643c;margin:18px 0 28px}
+.invitation-heading svg{width:16px;height:16px}
+.price-invitation .price-grid{display:block;background:none;border:0}
+.price-invitation .price-option{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 0;border-bottom:1px solid #b9ae99;background:none}
+.price-invitation .price-option h3{font-size:17px;color:var(--dark)}
+.price-invitation .price-value{font-size:40px;line-height:1.2;color:#72592e;white-space:nowrap}
+.price-value small{font:12px var(--sans);margin-left:6px;color:#5a6170}
+.price-invitation .discount{background:none;color:var(--dark);padding:25px 0 0}
+.price-invitation .discount h3{font-size:21px;font-family:var(--serif)}
+.price-invitation .discount p{font-size:14px;line-height:1.9;margin-top:10px}
+.price-invitation .price-departments{color:#5a6170;font-size:12px;margin:24px 0 12px;padding-top:20px;border-top:1px dashed #b9ae99}
+.price-invitation .text-link{font-size:14px}.price-invitation .text-link:hover{color:#72592e}
+.page-visit .visit-layout{padding-block:40px 15px;border-top:1px solid var(--line);gap:10%}
+.page-visit .invitation-ticket{background:none;color:var(--ink);border:1px solid #dec38d66;padding:36px;position:relative}
+.page-visit .invitation-ticket::before{content:'';position:absolute;inset:8px;border:1px solid #dec38d33;pointer-events:none}
+.page-visit .invitation-ticket .eyebrow{color:var(--gold)}
+.page-visit .event-details>div{border-color:var(--line)}.page-visit .event-details dt{color:var(--muted)}
+.page-visit .invitation-ticket .text-link:hover{color:var(--gold)}
+.page-visit .registration-steps li{padding-block:18px}.page-visit .registration{padding-top:10px}
+.partner-hero{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:7%;padding-block:65px 45px}
+.partner-hero h1{font-size:clamp(36px,4.3vw,60px);line-height:1.5;letter-spacing:.02em}
+.partner-lead{color:var(--muted);margin-top:26px;font-size:16px;max-width:33em}
+.partner-channel-labels{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:26px;font-size:12px;color:var(--gold)}
+.partner-channel-labels>span{padding-bottom:5px;border-bottom:1px solid #dec38d55}
+.partner-cover{position:relative;padding:12px 12px 0;transform:rotate(1.5deg)}
+.partner-cover::before{content:'';position:absolute;inset:0 0 35px;border:1px solid #dec38d66;border-radius:45% 45% 0 0 / 28% 28% 0 0;pointer-events:none}
+.partner-cover>img{width:100%;aspect-ratio:1.2;object-fit:cover;object-position:50% 55%;border-radius:45% 45% 0 0 / 28% 28% 0 0}
+.partner-cover figcaption{font-size:11px;padding:4px 10px}
+.cover-ornament{position:absolute;right:-18px;bottom:25px;color:var(--gold)}.cover-ornament svg{width:55px;height:55px}
+.partner-audience{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:8%;padding:30px 0 45px;border-top:1px solid var(--line)}
+.partner-audience .forecast{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:6px 26px}
+.partner-audience .forecast>.eyebrow{grid-column:1/-1;margin:0}
+.partner-audience .forecast-number{font-size:56px}.partner-audience .forecast .fine-print{font-size:11px;margin:0;max-width:22em}
+.audience-message{display:flex;gap:24px;align-items:center;color:var(--muted);font-size:15px}.audience-flower{color:var(--gold)}.audience-flower svg{width:42px;height:42px}
+.page-partners .sponsor-showcase{padding-block:38px 45px;border-bottom:1px solid var(--line);border-top:0}
+.brand-moment{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:9%;padding-block:80px}
+.brand-moment-photo{position:relative;padding:12px 12px 0;background:var(--paper);transform:rotate(-2deg);box-shadow:0 20px 45px #080f1b44}
+.brand-moment-photo img{width:100%;aspect-ratio:1.2;object-fit:cover}.brand-moment-photo figcaption{color:#5a6170;padding:5px 5px 14px;font-size:11px}
+.brand-moment-copy h2{font-size:42px;line-height:1.5;letter-spacing:.04em}
+.brand-moment-copy>p:not(.eyebrow){font-size:14px;color:var(--muted);margin-top:20px}
+.brand-options{margin-top:22px}.brand-options li{display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}.brand-options li>span{font-size:11px;color:var(--gold);margin-top:5px}.brand-options h3{font-size:18px}.brand-options p{font-size:13px;color:var(--muted);margin-top:6px}
+.report-invitation{display:grid;grid-template-columns:240px 1fr;gap:6%;align-items:center;padding:40px;background:var(--paper);outline:1px solid #a28e68;outline-offset:-12px}
+.report-illustration{height:265px;position:relative;color:#79643c}.report-illustration .glasshouse-motif{color:#a18b62;opacity:.6}
+.report-illustration>span{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font:70px/1.4 var(--serif)}.report-illustration small{font:10px var(--sans);letter-spacing:.2em}
+.report-copy .eyebrow{color:#79643c}.report-copy h2{font-size:34px}.report-copy>p:not(.eyebrow){font-size:15px;line-height:1.9;margin-top:18px}
+@media(max-width:1000px){.partner-hero h1{font-size:42px}.partner-lead{font-size:15px}.partner-audience .forecast{display:block}.partner-audience .forecast .fine-print{max-width:none;margin-top:10px}.illustrated-prices{gap:5%}.price-invitation{padding:32px 26px}.price-invitation .price-value{font-size:34px}.price-invitation .price-option h3{font-size:15px}.brand-moment{gap:6%}.brand-moment-copy h2{font-size:35px}.report-invitation{grid-template-columns:180px 1fr;gap:5%;padding:35px}.report-copy h2{font-size:29px}}
+@media(max-width:700px){.visit-editorial-intro{padding-block:36px 25px;gap:16px}.visit-editorial-intro h1{font-size:39px}.visit-editorial-intro p:not(.eyebrow){font-size:14px;max-width:24em;margin-top:18px}.intro-star{position:absolute;top:45px;right:0;width:55px;height:55px;margin:0;border:0}.intro-star svg{width:28px;height:28px}.illustrated-prices{grid-template-columns:1fr;gap:0;padding-block:15px 45px}.price-scene{display:grid;grid-template-columns:1fr 110px;align-items:center;margin-bottom:22px;gap:12px}.price-scene-title{margin:0}.price-scene-title .eyebrow{font-size:9px;letter-spacing:.12em}.price-scene-title h2{font-size:29px}.price-scene-title>p:last-child{font-size:12px}.price-garden{width:100%;padding:0;margin:0}.price-garden>img{aspect-ratio:1;mask-image:linear-gradient(to bottom,#000 70%,transparent)}.price-garden>.glasshouse-motif{inset:0}.price-art-date{display:none}.price-invitation{padding:28px 25px;border-radius:44% 44% 0 0 / 10% 10% 0 0}.invitation-heading{font-size:9px;gap:12px;margin:16px 0}.price-invitation .price-option{padding:18px 0;gap:12px}.price-invitation .price-value{font-size:33px}.price-invitation .price-option h3{font-size:14px}.price-value small{font-size:10px}.price-invitation .discount h3{font-size:20px}.price-invitation .discount p{font-size:13px}.page-visit .visit-layout{padding-top:26px;gap:30px}.page-visit .invitation-ticket{padding:27px}.page-visit .event-details dd{font-size:18px}.partner-hero{grid-template-columns:1fr;gap:32px;padding-block:36px 30px}.partner-hero h1{font-size:clamp(30px,8vw,42px);line-height:1.55}.partner-lead{font-size:14px;margin-top:20px}.partner-channel-labels{font-size:11px;margin-top:20px}.partner-cover{width:94%;margin-inline:auto}.partner-cover>img{aspect-ratio:1.3}.cover-ornament{right:-8px}.cover-ornament svg{width:40px;height:40px}.partner-audience{grid-template-columns:1fr;gap:25px;padding-block:25px 30px}.partner-audience .forecast-number{font-size:58px}.partner-audience .forecast .fine-print{font-size:12px;max-width:30em}.audience-message{gap:18px;font-size:13px}.audience-flower svg{width:28px;height:28px}.page-partners .sponsor-showcase{padding-block:15px 30px}.brand-moment{grid-template-columns:1fr;gap:35px;padding-block:45px}.brand-moment-photo{width:95%;margin-inline:auto;padding:9px 9px 0}.brand-moment-photo img{aspect-ratio:1.35}.brand-moment-copy h2{font-size:32px}.brand-options{margin-top:18px}.brand-options li{padding-block:17px}.report-invitation{grid-template-columns:1fr;padding:32px 27px;gap:15px}.report-illustration{height:100px;width:100px;justify-self:center}.report-illustration>span{font-size:36px}.report-illustration small{font-size:7px}.report-copy h2{font-size:27px}.report-copy>p:not(.eyebrow){font-size:14px}.report-copy .hero-actions{margin-top:22px}}
+/* Fade the panorama into the page instead of ending at a hard image edge. */
+.evening-art{position:relative}
+.evening-art::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,transparent 65%,rgba(23,34,57,.18) 77%,rgba(23,34,57,.7) 91%,var(--night) 100%)}
+.evening-art .art-triptych{mask-image:linear-gradient(to right,transparent,#000 2%,#000 98%,transparent)}
+.evening-art+.page-intro{position:relative;margin-top:-8px}
+@media(prefers-reduced-motion:no-preference){.intro-star{animation:invitation-star 2.8s ease-in-out both}.cover-ornament{animation:invitation-star 3.2s ease-in-out both}.partner-cover{transition:transform .65s ease}.brand-moment-photo{transition:transform .65s ease}@media(hover:hover){.partner-cover:hover{transform:rotate(0)}.brand-moment-photo:hover{transform:rotate(-.5deg) translateY(-4px)}}}
+@keyframes invitation-star{0%,100%{transform:rotate(0) scale(1)}50%{transform:rotate(12deg) scale(.93)}}
+/* Keep text fully opaque during entrance motion so its contrast remains stable. */
+@keyframes photo-arrive{from{translate:0 18px}to{translate:0 0}}
+.price-invitation .invitation-heading{color:#67512c}

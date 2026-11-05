@@ -14,7 +14,7 @@ for(const width of [375,390,768,1440])for(const locale of ['zh','en'])for(const 
   expect(layout.scroll).toBeLessThanOrEqual(layout.width+1);expect(layout.clipped).toEqual([]);
   const body=await page.locator('body').innerText();
   expect(body).not.toMatch(/[;；]/);expect(body).not.toMatch(/欣賞完整主視覺|一個夜晚.*相聚|照片裡的相聚|從第一聲|不是.*而是/);
-  expect(body).not.toContain('12.26');
+  expect(body).not.toContain('12.26');expect(body).not.toMatch(/17:45|18:15/);
   expect(await page.locator('a[href="#"]').count()).toBe(0);
   await page.evaluate(()=>{for(const img of document.images)img.loading='eager';});
   await expect.poll(()=>page.evaluate(()=>[...document.images].filter(i=>i.getClientRects().length&&(!i.complete||!i.naturalWidth)).length)).toBe(0);
@@ -75,4 +75,8 @@ test('program page opens with blended illustrations and no date text overlay',as
 });
 test('photo reveal honors reduced motion',async({page})=>{
  await page.emulateMedia({reducedMotion:'reduce'});await page.goto('index.html');await page.locator('.archive').scrollIntoViewIfNeeded();expect(await page.locator('[data-reveal]').first().evaluate(e=>getComputedStyle(e).animationName)).toBe('none');
+});
+
+test('confirmed performers and revised admission stay consistent',async({page})=>{
+ await page.goto('evening.html');const program=page.locator('.program-list');await expect(program).toContainText('18:00 至 18:20');for(const name of ['吉他社','勁舞社','舞蹈社','班恩'])await expect(program).toContainText(name);await expect(program).not.toContainText('表演名單確認後公布');await page.goto('visit.html');await expect(page.locator('#registration')).toContainText('18:00 至 18:20');await expect(page.locator('h1')).toHaveText('找好朋友一起來報名');
 });
