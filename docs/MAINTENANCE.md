@@ -24,7 +24,7 @@ registrationURL 與 instagramURL 已啟用。網址使用 HTTPS。尚無公開 e
 
 只有確認合作後才能新增 event.sponsors。每筆需 name.zh、name.en、logoFile，可選 url、description、bannerFile、bannerAlt。logoFile 與 bannerFile 置於 public/assets，建置會檢查檔名、存在性與 HTTPS 連結。
 
-空名單不生成假品牌或虛構進度。首頁仍提供合作入口，品牌頁呈現實際可討論項目與官方 IG。研究文件不公開私人聯絡資料或原始提案。
+空名單不生成假品牌或虛構進度。首頁顯示三格明確標示的 Banner 預留示意版位，取得正式 bannerFile 後改為實際品牌 Banner。這三格不代表限量或保證合作名額。品牌頁呈現實際可討論項目與官方 IG。研究文件不公開私人聯絡資料或原始提案。
 
 ## 字型與照片
 
