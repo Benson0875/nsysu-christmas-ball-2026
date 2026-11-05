@@ -4,7 +4,7 @@
 
 | 內容 | 位置 |
 | --- | --- |
-| 活動日期、網址、截止日、品牌名單 | src/event.mjs 的 event |
+| 活動日期、入場時段、網址、截止日、品牌名單 | src/event.mjs 的 event |
 | 中英文文案、票價、繳費與規則 | src/event.mjs 的 copy |
 | 頁面與共用導覽 | scripts/build.mjs |
 | 視覺與手機版面 | public/style.css |
@@ -45,3 +45,6 @@ node scripts/capture-redesign.mjs
 CI 會安裝 Chromium 系統依賴並執行測試。合併到 main 後，原有 GitHub Actions 將發布 dist 到 GitHub Pages。部署以 GitHub Actions 的完成狀態為準。
 
 互動事件只供後續接入分析，不會自動收集或對外傳輸。表單開始、送出、繳費與實到資料需主辦方提供彙總，詳見 redesign/VALIDATION.md。
+
+
+票價頁與品牌合作頁的插畫編排使用既有 garden 圖及原生 SVG 花房線稿，無新增虛構照片。入場時段由 event.admissionStart 與 admissionEnd 產生，變動時須由主辦同步更新外部報名表。動態以位移為主，文字不降低透明度，並支援 prefers-reduced-motion。
