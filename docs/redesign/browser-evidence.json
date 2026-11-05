@@ -1,0 +1,261 @@
+{
+  "note": "Local browser observations only. These do not measure student interest or production conversion. Resource lists include images eagerly decoded for screenshots, including initially hidden artwork.",
+  "evidence": [
+    {
+      "locale": "zh-Hant",
+      "width": 390,
+      "cta": {
+        "x": 22,
+        "y": 559.953125,
+        "width": 165,
+        "height": 65.59375,
+        "top": 559.953125,
+        "right": 187,
+        "bottom": 625.546875,
+        "left": 22
+      },
+      "navigation": [
+        {
+          "domContentLoadedMs": 25.300000000745058,
+          "loadMs": 72.90000000223517
+        }
+      ],
+      "resources": [
+        {
+          "name": "noto-sans-tc.woff2",
+          "bytes": 139124
+        },
+        {
+          "name": "style.css",
+          "bytes": 20792
+        },
+        {
+          "name": "app.js",
+          "bytes": 2037
+        },
+        {
+          "name": "avatar.png",
+          "bytes": 22762
+        },
+        {
+          "name": "garden-540.webp",
+          "bytes": 54868
+        },
+        {
+          "name": "noto-serif-tc.woff2",
+          "bytes": 95816
+        },
+        {
+          "name": "group-640.webp",
+          "bytes": 38086
+        },
+        {
+          "name": "crowd-640.webp",
+          "bytes": 23524
+        },
+        {
+          "name": "garden-900.webp",
+          "bytes": 100872
+        },
+        {
+          "name": "title-900.webp",
+          "bytes": 93282
+        },
+        {
+          "name": "castle-900.webp",
+          "bytes": 89246
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "cta": {
+        "x": 22,
+        "y": 712.640625,
+        "width": 264,
+        "height": 65.59375,
+        "top": 712.640625,
+        "right": 286,
+        "bottom": 778.234375,
+        "left": 22
+      },
+      "navigation": [
+        {
+          "domContentLoadedMs": 27.300000000745058,
+          "loadMs": 37
+        }
+      ],
+      "resources": [
+        {
+          "name": "noto-sans-tc.woff2",
+          "bytes": 139124
+        },
+        {
+          "name": "style.css",
+          "bytes": 20792
+        },
+        {
+          "name": "app.js",
+          "bytes": 2037
+        },
+        {
+          "name": "avatar.png",
+          "bytes": 22762
+        },
+        {
+          "name": "garden-540.webp",
+          "bytes": 54868
+        },
+        {
+          "name": "garden-900.webp",
+          "bytes": 100872
+        },
+        {
+          "name": "noto-serif-tc.woff2",
+          "bytes": 95816
+        },
+        {
+          "name": "group-640.webp",
+          "bytes": 38086
+        },
+        {
+          "name": "crowd-640.webp",
+          "bytes": 23524
+        },
+        {
+          "name": "title-900.webp",
+          "bytes": 93282
+        },
+        {
+          "name": "castle-900.webp",
+          "bytes": 89246
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hant",
+      "width": 1440,
+      "cta": {
+        "x": 80,
+        "y": 803.90625,
+        "width": 177,
+        "height": 65.59375,
+        "top": 803.90625,
+        "right": 257,
+        "bottom": 869.5,
+        "left": 80
+      },
+      "navigation": [
+        {
+          "domContentLoadedMs": 19.199999999254942,
+          "loadMs": 29.300000000745058
+        }
+      ],
+      "resources": [
+        {
+          "name": "noto-sans-tc.woff2",
+          "bytes": 139124
+        },
+        {
+          "name": "style.css",
+          "bytes": 20792
+        },
+        {
+          "name": "app.js",
+          "bytes": 2037
+        },
+        {
+          "name": "avatar.png",
+          "bytes": 22762
+        },
+        {
+          "name": "garden-900.webp",
+          "bytes": 100872
+        },
+        {
+          "name": "noto-serif-tc.woff2",
+          "bytes": 95816
+        },
+        {
+          "name": "group-960.webp",
+          "bytes": 65272
+        },
+        {
+          "name": "crowd-960.webp",
+          "bytes": 44682
+        },
+        {
+          "name": "title-900.webp",
+          "bytes": 93282
+        },
+        {
+          "name": "castle-900.webp",
+          "bytes": 89246
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "cta": {
+        "x": 80,
+        "y": 926.296875,
+        "width": 276,
+        "height": 65.59375,
+        "top": 926.296875,
+        "right": 356,
+        "bottom": 991.890625,
+        "left": 80
+      },
+      "navigation": [
+        {
+          "domContentLoadedMs": 12.700000002980232,
+          "loadMs": 29.300000000745058
+        }
+      ],
+      "resources": [
+        {
+          "name": "noto-sans-tc.woff2",
+          "bytes": 139124
+        },
+        {
+          "name": "style.css",
+          "bytes": 20792
+        },
+        {
+          "name": "garden-900.webp",
+          "bytes": 100872
+        },
+        {
+          "name": "avatar.png",
+          "bytes": 22762
+        },
+        {
+          "name": "app.js",
+          "bytes": 2037
+        },
+        {
+          "name": "noto-serif-tc.woff2",
+          "bytes": 95816
+        },
+        {
+          "name": "group-960.webp",
+          "bytes": 65272
+        },
+        {
+          "name": "crowd-960.webp",
+          "bytes": 44682
+        },
+        {
+          "name": "title-900.webp",
+          "bytes": 93282
+        },
+        {
+          "name": "castle-900.webp",
+          "bytes": 89246
+        }
+      ]
+    }
+  ]
+}

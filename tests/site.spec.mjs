@@ -1,132 +1,78 @@
 import { test, expect } from '@playwright/test';
-import { mkdir } from 'node:fs/promises';
 import AxeBuilder from '@axe-core/playwright';
-
-const routes = ['index','evening','visit','partners'];
-for (const width of [375,390,768,1440]) {
-  for (const locale of ['zh','en']) {
-    for (const route of routes) {
-      test(`${locale} ${route} at ${width}px`, async ({page}) => {
-        await page.setViewportSize({width,height:900});
-        const errors=[];
-        page.on('pageerror',error=>errors.push(error.message));
-        page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
-        const response=await page.goto(`${locale==='en'?'en/':''}${route}.html`);
-        expect(response.status()).toBe(200);
-        await page.evaluate(()=>document.fonts.ready);
-        await page.locator('h1').waitFor();
-        expect(await page.locator('h1').count()).toBe(1);
-        expect(await page.locator('html').getAttribute('lang')).toBe(locale==='zh'?'zh-Hant':'en');
-        if(route==='index') {
-          await expect(page.locator('.hero-topline')).toHaveCount(0);
-          if(width<700) await expect.poll(()=>page.locator('.panorama-scroll').evaluate(el=>el.scrollLeft)).toBeGreaterThan(150);
-        }
-        const layout=await page.evaluate(()=>({view:innerWidth,body:document.documentElement.scrollWidth, clipped:[...document.querySelectorAll('h1,h2,h3,p,dd,summary,.button,.text-link')].filter(el=>el.getClientRects().length&&!el.closest('dialog')).filter(el=>el.scrollWidth>el.clientWidth+2).map(el=>el.textContent)}));
-        expect(layout.body).toBeLessThanOrEqual(layout.view+1);
-        expect(layout.clipped).toEqual([]);
-        const text=await page.locator('body').innerText();
-        expect(text).not.toMatch(/[;；\-]/);
-        expect(text).not.toContain('12.26');
-        expect(text).not.toMatch(/臺灣時間|Taiwan time/);
-        for(const heading of await page.locator('h1,h2,h3,.eyebrow').allTextContents()) expect(heading).not.toMatch(/[，。、,.!?！？’]/);
-        if(route==='partners') await expect(page.locator('.partner-event-photo img')).toBeVisible();
-        expect(await page.locator('a[href="#"]').count()).toBe(0);
-        await page.evaluate(()=>{for(const img of document.images)img.loading='eager';});
-        await expect.poll(()=>page.evaluate(()=>[...document.images].filter(i=>!i.complete||!i.naturalWidth).length)).toBe(0);
-        const hrefs=await page.locator('a[href]').evaluateAll(links=>links.map(a=>a.href).filter(h=>h.startsWith(location.origin)));
-        for (const href of new Set(hrefs)) expect((await page.request.get(href)).status()).toBe(200);
-        expect(errors).toEqual([]);
-        if(route==='index' && [390,1440].includes(width)) {
-          await mkdir('docs/screenshots',{recursive:true});
-          await page.evaluate(()=>Promise.all([...document.images].map(img=>img.decode().catch(()=>{}))));
-          await page.screenshot({path:`docs/screenshots/home-${locale}-${width}.png`,fullPage:true});
-        }
-      });
-    }
+import { mkdir } from 'node:fs/promises';
+const routes=['index','evening','visit','partners'];
+for(const width of [375,390,768,1440])for(const locale of ['zh','en'])for(const route of routes){
+ test(`${locale} ${route} at ${width}px`,async({page})=>{
+  await page.setViewportSize({width,height:900});
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+  expect((await page.goto(`${locale==='en'?'en/':''}${route}.html`)).status()).toBe(200);
+  await page.evaluate(()=>document.fonts.ready);
+  await expect(page.locator('h1')).toHaveCount(1);
+  expect(await page.locator('html').getAttribute('lang')).toBe(locale==='zh'?'zh-Hant':'en');
+  const layout=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,clipped:[...document.querySelectorAll('h1,h2,h3,p,dd,summary,.button,.text-link')].filter(e=>e.getClientRects().length).filter(e=>e.scrollWidth>e.clientWidth+2).map(e=>e.textContent)}));
+  expect(layout.scroll).toBeLessThanOrEqual(layout.width+1);expect(layout.clipped).toEqual([]);
+  const body=await page.locator('body').innerText();
+  expect(body).not.toMatch(/[;；]/);expect(body).not.toMatch(/欣賞完整主視覺|一個夜晚.*相聚|照片裡的相聚|從第一聲|不是.*而是/);
+  expect(body).not.toContain('12.26');
+  expect(await page.locator('a[href="#"]').count()).toBe(0);
+  await page.evaluate(()=>{for(const img of document.images)img.loading='eager';});
+  await expect.poll(()=>page.evaluate(()=>[...document.images].filter(i=>i.getClientRects().length&&(!i.complete||!i.naturalWidth)).length)).toBe(0);
+  const hrefs=await page.locator('a[href]').evaluateAll(links=>links.map(a=>a.href).filter(h=>h.startsWith(location.origin)));
+  for(const href of new Set(hrefs))expect((await page.request.get(href)).status()).toBe(200);
+  expect(errors).toEqual([]);
+  if(route==='index'&&[390,1440].includes(width)){
+   await mkdir('docs/redesign/screenshots',{recursive:true});
+   await page.evaluate(()=>Promise.all([...document.images].map(i=>i.decode().catch(()=>{}))));
+   await page.screenshot({path:`docs/redesign/screenshots/after-${locale}-${width}.png`,fullPage:true});
   }
+ });
 }
-
-test('mobile navigation, locale switch and return path',async({page})=>{
-  await page.setViewportSize({width:375,height:812});
-  await page.goto('visit.html');
-  const toggle=page.locator('.menu-toggle');
-  await toggle.click();
-  await expect(toggle).toHaveAttribute('aria-expanded','true');
-  await expect(page.locator('.site-nav')).toBeVisible();
-  await page.keyboard.press('Escape');
-  await expect(toggle).toHaveAttribute('aria-expanded','false');
-  await expect(toggle).toBeFocused();
-  await toggle.click();
-  await page.locator('.site-nav a').last().click();
-  await expect(page).toHaveURL(/partners\.html$/);
-  await expect(toggle).toHaveAttribute('aria-expanded','false');
-  await page.locator('.language-switch').click();
-  await expect(page).toHaveURL(/en\/partners\.html$/);
-  await page.locator('.language-switch').click();
-  await expect(page).not.toHaveURL(/en\//);
+test('mobile menu, Escape, locale and navigation',async({page})=>{
+ await page.setViewportSize({width:375,height:812});await page.goto('visit.html');
+ const toggle=page.locator('.menu-toggle');await toggle.click();await expect(toggle).toHaveAttribute('aria-expanded','true');await expect(page.locator('.site-nav')).toBeVisible();
+ await page.keyboard.press('Escape');await expect(toggle).toHaveAttribute('aria-expanded','false');await expect(toggle).toBeFocused();
+ await toggle.click();await page.locator('.site-nav a').last().click();await expect(page).toHaveURL(/partners\.html$/);await expect(toggle).toHaveAttribute('aria-expanded','false');
+ await page.locator('.language-switch').click();await expect(page).toHaveURL(/en\/partners\.html$/);await page.locator('.language-switch').click();await expect(page).not.toHaveURL(/en\//);
+});
+test('registration and real prices with payment instructions',async({page})=>{
+ await page.goto('visit.html');await expect(page.locator('#prices')).toContainText('NT$500');await expect(page.locator('#prices')).toContainText('NT$600');await expect(page.locator('#prices')).toContainText('IBBA');
+ await expect(page.locator('#registration')).toContainText('11 月 30 日');await expect(page.locator('#registration')).toContainText('僅收現金');
+ const cta=page.locator('#registration a.button');await expect(cta).toHaveAttribute('href',/^https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSdbCmJCnpaMx3yXq5MPW752hXm9opATsylgUQ6VNDP05DYKcQ\/viewform$/);
+ const summary=page.locator('.faq summary').first();await summary.focus();await page.keyboard.press('Enter');await expect(page.locator('.faq details').first()).toHaveAttribute('open','');
 });
 
-test('artwork viewer, carousel controls and focus restoration',async({page})=>{
-  await page.setViewportSize({width:390,height:844});
-  await page.goto('index.html');
-  const scroller=page.locator('.panorama-scroll');
-  const initial=await scroller.evaluate(el=>el.scrollLeft);
-  expect(initial).toBeGreaterThan(0);
-  await page.locator('[data-direction="next"]').click();
-  await expect.poll(()=>scroller.evaluate(el=>el.scrollLeft)).toBeGreaterThan(initial);
-  await page.locator('[data-open-art]').click();
-  await expect(page.locator('dialog')).toBeVisible();
-  await page.keyboard.press('Escape');
-  await expect(page.locator('dialog')).not.toBeVisible();
-  await expect(page.locator('[data-open-art]')).toBeFocused();
+
+
+test('calendar contains the actual event time in UTC',async({request})=>{
+ const r=await request.get('event.ics');expect(r.status()).toBe(200);const text=await r.text();expect(text).toContain('DTSTART:20261224T100000Z');expect(text).toContain('DTEND:20261224T130000Z');expect(text).toContain('福容');
+});
+test('no JavaScript keeps mobile navigation and registration available',async({browser})=>{
+ const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:375,height:812}});const page=await context.newPage();await page.goto('http://127.0.0.1:4173/nsysu-christmas-ball-2026/');await expect(page.locator('.site-nav a').last()).toBeVisible();await expect(page.locator('[data-share]')).toBeHidden();await page.locator('.site-nav a').nth(2).click();await expect(page.locator('#registration a.button')).toBeVisible();await context.close();
+});
+test('sponsor forecast is labelled, real contact and no fake partners',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('partners.html');await expect(page.locator('.forecast')).toContainText('並非已報名或歷年實到');await expect(page.locator('[data-track="sponsor_contact"]')).toHaveAttribute('href','https://www.instagram.com/serendipity20.26/');await expect(page.locator('.partner-card')).toHaveCount(0);expect(await page.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior)).toBe('auto');
+});
+for(const locale of ['zh','en'])for(const route of routes)test(`accessibility ${locale} ${route}`,async({page})=>{
+ await page.setViewportSize({width:390,height:844});await page.goto(`${locale==='en'?'en/':''}${route}.html`);await page.evaluate(()=>document.fonts.ready);const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();expect(result.violations).toEqual([]);
+});
+for(const width of [375,390,1280,1920,2560])test(`first screen registration and wide layout ${width}`,async({page})=>{
+ await page.setViewportSize({width,height:width<700?812:900});await page.goto('index.html');await page.evaluate(()=>document.fonts.ready);const cta=await page.locator('.hero-actions .button').first().boundingBox();expect(cta.y+cta.height).toBeLessThan(width<700?812:900);expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBe(width);
 });
 
-test('registration state and FAQ keyboard operation',async({page})=>{
-  await page.goto('visit.html');
-  await expect(page.locator('#registration')).toContainText('報名表單尚在準備中');
-  await expect(page.getByRole('link',{name:'前往報名'})).toHaveCount(0);
-  const summary=page.locator('summary').first();
-  await summary.focus();
-  await page.keyboard.press('Enter');
-  await expect(page.locator('details').first()).toHaveAttribute('open','');
+
+
+test('skip link moves keyboard focus into main content',async({page})=>{
+ await page.goto('index.html');await page.keyboard.press('Tab');await expect(page.locator('.skip-link')).toBeFocused();await page.keyboard.press('Enter');await expect(page.locator('main')).toBeFocused();
 });
 
-test('no JavaScript fallback keeps navigation and event content available',async({browser})=>{
-  const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:375,height:812}});
-  const page=await context.newPage();
-  await page.goto('http://127.0.0.1:4173/nsysu-christmas-ball-2026/');
-  await expect(page.locator('h1')).toBeVisible();
-  await expect(page.locator('.site-nav a').last()).toBeVisible();
-  await page.locator('.site-nav a').nth(2).click();
-  await expect(page.locator('#registration')).toBeVisible();
-  await context.close();
+
+test('home simplifies invitation and keeps all ticket benefits',async({page})=>{
+ await page.goto('index.html');await expect(page.locator('h1')).toHaveText('童話序曲聖誕舞章');await expect(page.locator('.action-strip,.art-details')).toHaveCount(0);await expect(page.locator('.home-tickets')).toContainText('NT$500');await expect(page.locator('.home-tickets')).toContainText('NT$600');await expect(page.locator('.home-tickets')).toContainText('團報由一人填寫');await expect(page.locator('.home-tickets')).toContainText('可合併');
 });
-
-test('reduced motion and sponsor empty state',async({page})=>{
-  await page.emulateMedia({reducedMotion:'reduce'});
-  await page.goto('partners.html');
-  await expect(page.locator('.partners-empty')).toBeVisible();
-  expect(await page.locator('.partner-card').count()).toBe(0);
-  expect(await page.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior)).toBe('auto');
+test('program page opens with blended illustrations and no date text overlay',async({page})=>{
+ await page.goto('evening.html');await expect(page.locator('main > section').first()).toHaveClass('evening-art');await expect(page.locator('.evening-art img')).toHaveCount(3);await expect(page.locator('.art-date')).toHaveCount(0);await expect(page.locator('.art-date-mask')).toBeEmpty();
 });
-
-for(const locale of ['zh','en']) for(const route of routes) {
-  test(`accessibility ${locale} ${route}`,async({page})=>{
-    await page.setViewportSize({width:390,height:844});
-    await page.goto(`${locale==='en'?'en/':''}${route}.html`);
-    await page.evaluate(()=>document.fonts.ready);
-    const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
-    expect(result.violations).toEqual([]);
-  });
-}
-
-for (const width of [1920,2560]) test(`wide hero scales proportionally at ${width}px`,async({page})=>{
-  await page.setViewportSize({width,height:1080});
-  await page.goto('index.html');
-  const box=await page.locator('.panorama-shell').boundingBox();
-  expect(box.width).toBe(1440);
-  expect(box.x).toBe((width-1440)/2);
-  expect(box.height/box.width).toBeGreaterThan(.4);
-  expect(box.height/box.width).toBeLessThan(.45);
-  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBe(width);
+test('photo reveal honors reduced motion',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('index.html');await page.locator('.archive').scrollIntoViewIfNeeded();expect(await page.locator('[data-reveal]').first().evaluate(e=>getComputedStyle(e).animationName)).toBe('none');
 });

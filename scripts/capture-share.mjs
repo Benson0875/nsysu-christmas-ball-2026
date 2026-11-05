@@ -1,0 +1,10 @@
+import { chromium } from '@playwright/test';
+import { event, copy } from '../src/event.mjs';
+const browser=await chromium.launch();
+const page=await browser.newPage({viewport:{width:1200,height:630},deviceScaleFactor:1});
+await page.goto('http://127.0.0.1:4173/nsysu-christmas-ball-2026/');
+await page.setContent(`<html lang="zh-Hant"><head><link rel="stylesheet" href="http://127.0.0.1:4173/nsysu-christmas-ball-2026/style.css"><style>body{width:1200px;height:630px;display:grid;grid-template-columns:1.2fr 1fr;overflow:hidden}.copy{padding:58px 0 45px 60px}.label{color:#dec38d;font-size:19px;letter-spacing:.12em}h1{font-size:66px;line-height:1.45;margin:20px 0}p{font-size:23px}.price{color:#dec38d;margin-top:18px;font-size:21px}.art{width:100%;height:630px;object-fit:cover;object-position:center 65%;border-radius:48% 0 0 0}</style></head><body><div class="copy"><p class="label">2026 中山七系聯合聖誕舞會</p><h1>童話序曲<br>聖誕舞章</h1><p>${copy.zh.date} · ${event.start} 至 ${event.end}</p><p>${copy.zh.venue} · ${copy.zh.room}</p><p class="price">主辦七系 NT$500 · 其他中山學生 NT$600<br>三人團報每人折 50 元</p></div><img class="art" src="http://127.0.0.1:4173/nsysu-christmas-ball-2026/assets/garden-900.webp" alt=""></body></html>`);
+await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode()));});
+await page.screenshot({path:'public/assets/share.jpg',type:'jpeg',quality:88});
+await browser.close();
+console.log('Saved 1200 × 630 share image.');
