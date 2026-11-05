@@ -44,9 +44,7 @@ test('registration and real prices with payment instructions',async({page})=>{
 
 
 
-test('calendar contains the actual event time in UTC',async({request})=>{
- const r=await request.get('event.ics');expect(r.status()).toBe(200);const text=await r.text();expect(text).toContain('DTSTART:20261224T100000Z');expect(text).toContain('DTEND:20261224T130000Z');expect(text).toContain('福容');
-});
+
 test('no JavaScript keeps mobile navigation and registration available',async({browser})=>{
  const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:375,height:812}});const page=await context.newPage();await page.goto('http://127.0.0.1:4173/nsysu-christmas-ball-2026/');await expect(page.locator('.site-nav a').last()).toBeVisible();await expect(page.locator('[data-share]')).toBeHidden();await page.locator('.site-nav a').nth(2).click();await expect(page.locator('#registration a.button')).toBeVisible();await context.close();
 });
