@@ -1,202 +1,115 @@
-// Public event facts. Unknown links stay null and never render as fake buttons.
+// Facts from the team proposal and the official registration form. See docs/redesign/FACTS.md.
 export const event = {
-  year: 2026,
-  dateISO: '2026-12-24',
-  start: '18:00',
-  end: '21:00',
-  timezone: 'Asia/Taipei',
+  year: 2026, dateISO: '2026-12-24', start: '18:00', end: '21:00', timezone: 'Asia/Taipei',
   siteURL: 'https://benson0875.github.io/nsysu-christmas-ball-2026/',
-  registrationURL: null,
-  instagramURL: null,
-  contactEmail: null,
+  registrationURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdbCmJCnpaMx3yXq5MPW752hXm9opATsylgUQ6VNDP05DYKcQ/viewform',
+  instagramURL: 'https://www.instagram.com/serendipity20.26/', contactEmail: null,
+  registrationDeadline: '2026-11-30',
   mapURL: 'https://www.google.com/maps/search/?api=1&query=高雄福容大飯店',
-  venueURL: 'https://www.fullon-hotels.com.tw/kh/tw/location/',
-  // Only add confirmed partners and approved files. See docs/MAINTENANCE.md.
-  sponsors: [],
+  venueURL: 'https://www.fullon-hotels.com.tw/kh/tw/location/', sponsors: [],
 };
-
 export const copy = {
   zh: {
     lang: 'zh-Hant', name: '童話序曲，聖誕舞章', shortName: '童話序曲',
-    meta: '2026 中山大學七系聯合耶誕晚會。12 月 24 日 18:00 至 21:00，於高雄福容大飯店芙蓉廳相聚。查看當晚活動、報名進度與入場資訊。',
-    nav: ['首頁', '當晚活動', '參加資訊', '合作品牌'],
-    skip: '跳到主要內容', menu: '開啟選單', closeMenu: '關閉選單',
-    langLabel: 'Switch to English', langButton: 'EN',
-    organizerShort: '中山大學七系聯合耶誕晚會',
-    organizer: '國立中山大學 2026 七系聯合耶誕晚會籌辦團隊',
-    date: '2026 年 12 月 24 日', dateShort: '12 月 24 日・星期四',
-    time: '18:00 至 21:00', timeZone: '臺灣時間',
-    venue: '高雄福容大飯店', room: '芙蓉廳',
-    address: '高雄市鹽埕區五福四路 45 號',
-    intro: '今年平安夜，和朋友相約福容。從舞台表演到遊戲與合舞，讓我們一起度過這個夜晚。',
-    heroLine: ['童話序曲，', '聖誕舞章'],
-    heroKicker: '2026 CHRISTMAS BALL',
-    visitCTA: '查看參加資訊', eveningCTA: '看看當晚活動',
-    pending: '報名尚未開放', register: '前往報名',
-    registrationNote: '報名方式與費用將於開放時公布，歡迎稍後回來查看。',
-    artLabel: '活動主視覺', artHint: '左右滑動，走進完整的童話場景',
-    artLeft: '查看左側插畫', artRight: '查看右側插畫',
-    artAlts: ['城堡花園中，兩人在玻璃花房前共舞', '童話序曲，聖誕舞章活動主視覺，包含吊燈與聖誕水晶球', '燈光亮起的城堡、花園與馬車'],
-    artDateLabel: '正式活動日期', fullArt: '欣賞完整主視覺', closeArt: '關閉主視覺',
-    homeEyebrow: '一個夜晚，七系相聚',
-    homeHeading: '這一晚，\n一起留下回憶。',
-    homeBody: '由七系與學程的學生共同籌辦，也歡迎中山大學各科系的同學參加。約好熟悉的朋友，或在現場認識新朋友，一起迎接今年的聖誕節。',
-    featureNames: ['舞台表演', '遊戲與抽獎', '合舞與合照'],
-    archiveKicker: '歷屆活動紀錄', archiveTitle: '去年的笑聲，\n今年繼續。',
-    archiveBody: '照片裡的相聚來自去年。這次的場景與活動，等你一起留下新的紀錄。',
-    archiveCaption: '去年活動照片，本屆活動尚未舉行',
-    photoAlts: { group: '去年活動中，同學們在入口合照', crowd: '去年活動中，同學們聚在一起聊天', friends: '去年活動中，一群朋友在燈串下合照' },
-    homeBannerLabel: '品牌合作', homeBannerTitle: '一起參與這個平安夜。',
-    homeBannerText: '感謝每一份讓活動成真的支持。合作品牌將在此陸續與大家見面。',
-    homeBannerCTA: '認識合作品牌',
-    eveningKicker: 'THE EVENING', eveningTitle: '從第一聲招呼，\n到最後一張合照。',
-    eveningIntro: '當晚預計安排表演、遊戲、抽獎與合舞。詳細節目與各環節時間將於確認後公布。',
-    programLabel: '當晚流程', programNote: '以下為目前規劃，實際流程以後續公告為準。',
-    stages: [
-      ['入場', '迎賓與暖場', '和朋友碰面，準備迎接這個夜晚。'],
-      ['舞台', '表演與主持', '把目光交給舞台，跟著現場的節奏。'],
-      ['互動', '遊戲、抽獎與合舞', '一起參與遊戲，也一起走進舞池。'],
-      ['散場', '合照與自由拍照', '離開之前，再留下一張今晚的合照。'],
+    nav: ['首頁','當晚活動','票價與報名','品牌合作'],
+    skip: '跳到主要內容', menu: '開啟選單', closeMenu: '關閉選單', langLabel: 'Switch to English', langButton: 'EN',
+    date: '2026 年 12 月 24 日', dateShort: '12 月 24 日・星期四', time: '18:00 至 21:00',
+    venue: '高雄福容大飯店', room: '芙蓉廳', address: '高雄市鹽埕區五福四路 45 號',
+    organizer: '2026 中山七系聯合聖誕舞會籌辦團隊', audience: '中山各系學生皆可參加',
+    heroKicker: '2026 中山七系聯合聖誕舞會', heroLine: ['童話序曲','聖誕舞章'],
+    intro: '約朋友到福容，聽表演、玩遊戲，再一起跳舞。',
+    register: '填寫報名表', visitCTA: '查看票價', pending: '報名尚未開放',
+    eveningCTA: '查看活動內容', partnershipCTA: '查看合作方式',
+    share: '揪朋友一起去', shared: '已複製活動網址', shareFailed: '無法分享，請複製瀏覽器網址', shareCancelled: '已取消分享',
+    deadline: '報名至 11 月 30 日', calendar: '加入行事曆', priceFrom: '主辦七系學生', priceAmount: 'NT$500', priceOther: '其他中山學生 NT$600',
+    heroNote: '三人團報，每人再折 50 元',
+    facts: ['日期','時間','地點'],
+    archiveKicker: '2025 活動紀錄', archiveTitle: '舞會剪影',
+    archiveBody: '入口合照、朋友聊天，這些是去年參加者的活動照片。',
+    archiveCaption: '2025 活動照片',
+    photoAlts: {group:'2025 活動入口前的六位學生合照',crowd:'2025 活動現場，學生聚在一起聊天',friends:'2025 活動現場，朋友在燈串下合照'},
+    homeEyebrow: '當晚活動', homeHeading: '表演、遊戲，還有舞池',
+    homeBody: '當晚規劃表演、遊戲、抽獎與合舞。完整節目確認後，會在活動頁更新。',
+    featureNames: ['看表演','玩遊戲與抽獎','合舞與拍照'],
+    artLabel: '活動插畫', artAlts: ['城堡花園與玻璃花房前共舞的人物','童話序曲，聖誕舞章手繪活動標題','城堡、花園與馬車'], fullArt: '查看活動插畫', closeArt: '關閉插畫',
+    homeBannerLabel: '品牌合作', homeBannerTitle: '讓學生在活動中認識你的品牌',
+    homeBannerText: '網站、社群與現場宣傳，可依品牌需求討論合作內容。', homeBannerCTA: '查看合作方式',
+    eveningKicker: '當晚活動', eveningTitle: '12 月 24 日，福容見',
+    eveningIntro: '活動從 18:00 開始，17:45 至 18:15 開放入場。以下為目前節目規劃。',
+    programLabel: '節目規劃', programNote: '演出名單與各環節時間以後續公告為準。',
+    stages: [['入場','迎賓與暖場','開放入場時間為 17:45 至 18:15。'],['舞台','表演與主持','表演名單確認後公布。'],['互動','遊戲、抽獎與合舞','節目安排包含現場遊戲、抽獎與合舞。'],['拍照','合照與自由拍照','與朋友拍照，活動於 21:00 結束。']],
+    eveningCallout:'穿什麼去？', eveningCalloutText:'正裝或公主裝。正裝建議黑、白、灰，依報名表公告準備。',
+    visitKicker:'票價與報名',visitTitle:'找好朋友，就來報名',
+    visitIntro:'中山大學全體學生皆可參加。三人團報由一人填寫表單即可。',
+    detailsLabels:['活動日期','活動時間','活動地點','參加對象'],
+    registrationTitle:'填表後，記得完成繳費',
+    registrationBody:'報名開放後，會在這裡提供表單與票價。',
+    registrationNote:'12 月 1 日至 4 日，12:15 至 13:00，於車管會前菩提樹下現場繳交現金。未於期限內繳費，視同放棄報名。',
+    pricesTitle:'票價與優惠',priceLabels:['主辦七系學生','其他中山學生'],priceValues:['NT$500','NT$600'],
+    discountTitle:'三人團報，每人折 50 元',discountBody:'主辦七系學生已繳系學會費者，再折 50 元。兩項優惠可合併，符合兩項條件者每人 400 元。',
+    steps:[['填寫表單','單人或三人團報，依表單填寫參加資料。'],['現場繳費','12/1 至 12/4，12:15 至 13:00，車管會前菩提樹下，僅收現金。'],['當天入場','12/24 於 17:45 至 18:15 入場，活動 18:00 開始。']],
+    locationTitle:'怎麼去',locationBody:'活動在芙蓉廳舉行。詳細交通可查看飯店資訊，導航請使用下方地圖。',mapCTA:'開啟地圖',transportCTA:'飯店交通資訊',
+    faqTitle:'報名前先看',faqs:[
+      ['報名到什麼時候？','報名截止日為 2026 年 11 月 30 日，繳費日期為 12 月 1 日至 4 日。'],
+      ['不是主辦七系，也能報名嗎？','可以，中山大學全體學生皆可參加。主辦七系學生 500 元，其他中山學生 600 元。'],
+      ['三人團報要各填一份嗎？','不用，由一人填寫團體報名表即可。三人團報每人折 50 元。'],
+      ['填完表單就算報名成功嗎？','還需要繳費。12 月 1 日至 4 日，12:15 至 13:00，至車管會前菩提樹下繳交現金。未於期限內繳費視同放棄。'],
+      ['需要穿什麼？','正裝或公主裝。正裝建議黑、白、灰。'],
+      ['幾點入場？','17:45 至 18:15 開放入場，活動時間為 18:00 至 21:00。'],
+      ['報名或活動問題要問誰？','可私訊官方 Instagram @serendipity20.26，最新規則請以報名表與官方公告為準。'],
+      ['現場有什麼注意事項？','報名表註明現場提供酒水，建議先用餐。未滿 18 歲請勿飲酒，飲酒後請勿開車。場地清潔費等規範請先閱讀報名表。'],
     ],
-    eveningCallout: '節目還在準備中', eveningCalloutText: '確認的演出與活動細節會在這裡更新。現在先把平安夜留給彼此。',
-    visitKicker: 'YOUR INVITATION', visitTitle: '平安夜，\n我們在這裡見。',
-    visitIntro: '時間與地點已確認。報名開放後，本頁也會更新費用與入場說明。',
-    detailsLabels: ['活動日期', '活動時間', '活動地點', '參加對象'],
-    audience: '國立中山大學各科系學生',
-    registrationTitle: '報名與入場', registrationBody: '報名表單尚在準備中，目前無法報名。費用、報名期限、報到時間與入場方式將於開放時一併公布。',
-    locationTitle: '前往福容', locationBody: '活動於高雄福容大飯店芙蓉廳舉行。抵達飯店後的報到位置與入場動線，將於活動前公布。',
-    mapCTA: '在地圖上查看', transportCTA: '飯店交通資訊',
-    faqTitle: '出發前，你可能想知道',
-    faqs: [
-      ['現在可以報名了嗎？', '目前尚未開放。報名連結與費用會在確認後公布於本頁。'],
-      ['不是籌辦系所的學生，也能參加嗎？', '可以。活動開放國立中山大學各科系學生參加。'],
-      ['幾點可以入場？', '活動時間為 18:00 至 21:00。報到與開放入場時間將另外公布，請以報名開放後的說明為準。'],
-      ['有服裝規定，或需要準備禮物嗎？', '目前尚未公布服裝或攜帶物品的規定，請以後續活動公告為準。'],
-      ['在哪裡可以看到最新消息？', '這個網站會持續更新活動資訊。官方 Instagram 帳號建立後，也會在此提供連結。'],
-    ],
-    partnerKicker: 'OUR PARTNERS', partnerTitle: '讓這個夜晚，\n多一份支持。',
-    partnerIntro: '謝謝願意走近校園、陪伴學生相聚的每一份支持。我們期待與品牌一起，為這場耶誕晚會留下不同的回憶。',
-    partnerListTitle: '合作品牌', partnerEmptyTitle: '合作品牌將陸續公布',
-    partnerEmptyBody: '正式確認合作後，我們會在這裡介紹支持本次活動的品牌。',
-    partnershipTitle: '一起參與活動', partnershipBody: '品牌可透過活動網站、社群與現場宣傳參與晚會。實際合作方式與露出內容，將由雙方確認。',
-    partnershipWays: [
-      ['網站露出', '首頁品牌橫幅與合作品牌頁，讓參加者認識支持活動的品牌。'],
-      ['社群內容', '依雙方確認的方式安排 Instagram 宣傳，發布前確認內容。'],
-      ['現場宣傳', '舞台布幕呈現品牌 Logo、主持人口頭介紹，或依合作安排商品展示。'],
-    ],
-    contactPending: '合作聯絡方式將於官方帳號建立後公布。', contactCTA: '聯絡籌辦團隊',
-    organizerTitle: '由七系與學程的學生一起籌辦',
-    departments: ['企業管理', '資訊工程', '政治經濟', '電機工程', '護理', '生物醫學科技', '國際經營管理全英語學士學位學程'],
-    footerLine: '在聖誕節前夕，留下一段屬於我們的故事。',
-    footerStatus: '活動資訊持續更新中', backTop: '回到頁首',
-    imageLink: '品牌官網', previous: '前往上一個場景', next: '前往下一個場景',
+    partnerKicker:'品牌合作',partnerTitle:'把品牌帶進學生的平安夜',
+    partnerIntro:'活動由七系與學程學生籌辦，面向中山大學全體學生。合作可涵蓋活動網站、Instagram 與當晚現場。',
+    forecastLabel:'本次企劃預估',forecastValue:'300–350',forecastUnit:'人',forecastNote:'品牌合作提案中的預估參與人數，並非已報名或歷年實到人數。',
+    partnerListTitle:'合作品牌',partnerEmptyBody:'確認合作後，將在此公布品牌與合作內容。',
+    partnershipTitle:'可以怎麼合作',partnershipBody:'以下為提案中的合作方向。曝光位置、次數與執行內容，依雙方確認的合作方案安排。',
+    partnershipWays:[['網站曝光','首頁品牌橫幅與合作品牌頁，可呈現品牌識別與官方連結。'],['社群宣傳','透過活動 Instagram 安排品牌內容，發布內容與時程由雙方確認。'],['現場互動','可討論舞台品牌 Logo、主持人口播或商品展示，依場地規範與雙方約定安排。']],
+    reportTitle:'活動結束後，看得到執行紀錄',reportBody:'依合作約定提供宣傳連結、網站截圖、現場照片，以及可取得的社群後台數據、實際到場與物資使用紀錄。',
+    contactCTA:'私訊洽談贊助',contactPending:'公開合作聯絡方式尚未公布。',
+    organizerTitle:'籌辦系所與學程',departments:['企管','電機','醫科','政經','資工','護理','IBBA'],
+    footerLine:'童話序曲，聖誕舞章',footerStatus:'活動資訊以官方公告為準',backTop:'回到頁首',imageLink:'品牌官網',
   },
   en: {
-    lang: 'en', name: 'A Fairytale Overture, A Christmas Dance', shortName: 'Christmas Overture',
-    meta: 'The 2026 NSYSU Christmas Ball. Join us on December 24, from 18:00 to 21:00 at Fullon Hotel Kaohsiung. Explore the evening, registration updates and admission information.',
-    nav: ['Home', 'The evening', 'Plan your visit', 'Our partners'],
-    skip: 'Skip to main content', menu: 'Open menu', closeMenu: 'Close menu',
-    langLabel: '切換為繁體中文', langButton: '繁中',
-    organizerShort: 'NSYSU Christmas Ball · Seven departments and programs',
-    organizer: '2026 NSYSU Christmas Ball Student Organizing Committee',
-    date: 'December 24, 2026', dateShort: 'Thursday, December 24',
-    time: '18:00 to 21:00', timeZone: 'Taiwan time',
-    venue: 'Fullon Hotel Kaohsiung', room: 'Furong Ballroom',
-    address: 'No. 45, Wufu 4th Road, Yancheng District, Kaohsiung',
-    intro: 'Spend Christmas Eve with friends at Fullon. Join us for performances, games and dancing as we celebrate the season together.',
-    heroLine: ['A Fairytale Overture,', 'A Christmas Dance'], heroKicker: '2026 CHRISTMAS BALL',
-    visitCTA: 'Plan your visit', eveningCTA: 'Explore the evening',
-    pending: 'Registration opens soon', register: 'Register now',
-    registrationNote: 'Registration details and prices will be announced when booking opens. Please check back for updates.',
-    artLabel: 'Event artwork', artHint: 'Swipe to explore the full illustrated scene',
-    artLeft: 'View the illustration on the left', artRight: 'View the illustration on the right',
-    artAlts: ['A couple dances outside a glass conservatory in a castle garden', 'The Chinese event title above Christmas snow globes, with a chandelier overhead', 'An illuminated castle, garden and carriage at night'],
-    artDateLabel: 'EVENT DATE', fullArt: 'View the full artwork', closeArt: 'Close artwork',
-    homeEyebrow: 'ONE EVENING, ONE CAMPUS', homeHeading: 'A night to share.\nA memory to keep.',
-    homeBody: 'Organized by students from seven departments and programs, the ball welcomes students from across NSYSU. Bring your friends, meet someone new and celebrate Christmas together.',
-    featureNames: ['Live performances', 'Games and prize draws', 'Dancing and photos'],
-    archiveKicker: 'FROM LAST YEAR', archiveTitle: 'A glimpse of\nour last celebration.',
-    archiveBody: 'These moments are from last year. This year brings a new setting and new memories to make together.',
-    archiveCaption: 'Photos from last year. The 2026 event has not yet taken place.',
-    photoAlts: { group: 'Students posing together at the entrance during last year’s event', crowd: 'Students chatting together during last year’s event', friends: 'A group of friends posing under string lights at last year’s event' },
-    homeBannerLabel: 'PARTNERSHIPS', homeBannerTitle: 'Be part of this Christmas Eve.',
-    homeBannerText: 'Thank you to everyone helping bring this evening to life. Our confirmed partners will be introduced here.', homeBannerCTA: 'Meet our partners',
-    eveningKicker: 'THE EVENING', eveningTitle: 'From the first hello\nto the last photo.',
-    eveningIntro: 'The planned program includes performances, games, prize draws and dancing. The detailed schedule will be announced once confirmed.',
-    programLabel: 'The evening at a glance', programNote: 'This is the planned program. Please check future announcements for the final schedule.',
-    stages: [
-      ['Arrival', 'Welcome and warm up', 'Meet your friends and settle in for the evening.'],
-      ['On stage', 'Performances and hosting', 'Turn to the stage and enjoy the atmosphere.'],
-      ['Together', 'Games, prize draws and dancing', 'Join the games and share a dance with friends.'],
-      ['Farewell', 'Group photos and final moments', 'Take one more photo together before heading home.'],
-    ],
-    eveningCallout: 'The program is taking shape', eveningCalloutText: 'Confirmed performances and event details will appear here. For now, save Christmas Eve for a night together.',
-    visitKicker: 'YOUR INVITATION', visitTitle: 'See you\non Christmas Eve.',
-    visitIntro: 'The time and venue are confirmed. Prices and admission instructions will be published here when registration opens.',
-    detailsLabels: ['Date', 'Time', 'Venue', 'Who can attend'], audience: 'Students from all NSYSU departments and programs',
-    registrationTitle: 'Registration and admission', registrationBody: 'The registration form is being prepared and bookings are not open yet. Prices, deadlines, check in times and admission instructions will be announced when registration opens.',
-    locationTitle: 'Getting to Fullon', locationBody: 'The ball takes place in the Furong Ballroom at Fullon Hotel Kaohsiung. The check in location and route to the ballroom will be announced before the event.',
-    mapCTA: 'Open in Maps', transportCTA: 'Hotel travel information',
-    faqTitle: 'Before you go',
-    faqs: [
-      ['Can I register now?', 'Registration is not open yet. The booking link and prices will be published on this page once confirmed.'],
-      ['Can I attend if my department is not organizing the ball?', 'Yes. Students from all NSYSU departments and programs are welcome.'],
-      ['What time can I enter?', 'The event runs from 18:00 to 21:00. Check in and admission times will be announced separately when registration opens.'],
-      ['Is there a dress code, or should I bring a gift?', 'No dress code or requirements for items to bring have been announced. Please check future event updates.'],
-      ['Where can I find updates?', 'Event information will be updated on this website. A link to the official Instagram account will be added once it has been created.'],
-    ],
-    partnerKicker: 'OUR PARTNERS', partnerTitle: 'A little support.\nA night to remember.',
-    partnerIntro: 'We are grateful to the brands and people who support student gatherings. We look forward to working together to make this Christmas ball a memorable evening.',
-    partnerListTitle: 'Our partners', partnerEmptyTitle: 'Our partners will be announced soon', partnerEmptyBody: 'Once partnerships are confirmed, we will introduce the brands supporting this event here.',
-    partnershipTitle: 'Take part in the evening', partnershipBody: 'Brands can take part through our website, social content and event publicity. All partnership arrangements and placements will be agreed together.',
-    partnershipWays: [
-      ['On our website', 'Homepage banners and a dedicated partner page introduce participating brands to our guests.'],
-      ['On social media', 'Instagram content is arranged together and reviewed before publication.'],
-      ['At the event', 'Arrangements may include projected logos, mentions by the host or a product display.'],
-    ],
-    contactPending: 'Partnership contact information will be published when our official account is ready.', contactCTA: 'Contact the organizing team',
-    organizerTitle: 'Organized by students from seven departments and programs',
-    departments: ['Business Management', 'Computer Science and Engineering', 'Political Economy', 'Electrical Engineering', 'Nursing', 'Biomedical Science and Biotechnology', 'International Business Bachelor Program'],
-    footerLine: 'A story of our own, on the night before Christmas.',
-    footerStatus: 'More event information coming soon', backTop: 'Back to top', imageLink: 'Visit brand website',
-    previous: 'Go to the previous scene', next: 'Go to the next scene',
+    lang:'en',name:'A Fairytale Overture, A Christmas Dance',shortName:'Christmas Overture',
+    nav:['Home','Program','Tickets','Partnerships'],skip:'Skip to main content',menu:'Open menu',closeMenu:'Close menu',langLabel:'切換為繁體中文',langButton:'繁中',
+    date:'December 24, 2026',dateShort:'Thursday, December 24',time:'18:00 to 21:00',venue:'Fullon Hotel Kaohsiung',room:'Furong Ballroom',address:'No. 45, Wufu 4th Road, Yancheng District, Kaohsiung',
+    organizer:'2026 NSYSU Christmas Ball Student Organizing Committee',audience:'Open to all NSYSU students',
+    heroKicker:'2026 NSYSU CHRISTMAS BALL',heroLine:['A Fairytale Overture','A Christmas Dance'],intro:'Bring your friends to Fullon for performances, games and dancing.',
+    register:'Open registration form',visitCTA:'See ticket prices',pending:'Registration is not open',eveningCTA:'See the program',partnershipCTA:'Explore partnerships',
+    share:'Invite your friends',shared:'Event link copied',shareFailed:'Unable to share. Copy the address from your browser.',shareCancelled:'Sharing cancelled',deadline:'Register by November 30',calendar:'Add to calendar',
+    priceFrom:'Organizing departments',priceAmount:'NT$500',priceOther:'Other NSYSU students NT$600',heroNote:'Register as three and save NT$50 each',facts:['Date','Time','Venue'],
+    archiveKicker:'2025 EVENT PHOTOS',archiveTitle:'Scenes from the ball',archiveBody:'Student photos from last year’s entrance and gathering.',archiveCaption:'2025 event photo',
+    photoAlts:{group:'Six students at the entrance during the 2025 event',crowd:'Students talking at the 2025 event',friends:'Friends posing under string lights at the 2025 event'},
+    homeEyebrow:'THE PROGRAM',homeHeading:'Performances, games and dancing',homeBody:'The planned program includes performances, games, prize draws and dancing. Check the program page for updates.',featureNames:['Performances','Games and prize draws','Dancing and photos'],
+    artLabel:'Event illustrations',artAlts:['A couple dancing outside a glass conservatory','Hand drawn Chinese event title','A castle, garden and carriage'],fullArt:'See the illustrations',closeArt:'Close illustrations',
+    homeBannerLabel:'PARTNERSHIPS',homeBannerTitle:'Introduce your brand to NSYSU students',homeBannerText:'Discuss website placements, social content and event publicity with the organizing team.',homeBannerCTA:'Explore partnerships',
+    eveningKicker:'THE PROGRAM',eveningTitle:'December 24 at Fullon',eveningIntro:'The event starts at 18:00. Admission is from 17:45 to 18:15. Below is the planned program.',programLabel:'Planned program',programNote:'Performers and individual program times will be announced once confirmed.',
+    stages:[['Arrival','Welcome','Admission is from 17:45 to 18:15.'],['Stage','Performances and hosting','The lineup will be announced once confirmed.'],['Activities','Games, prize draws and dancing','Join the planned games, prize draws and dancing.'],['Photos','Group photos','Take photos with friends. The event ends at 21:00.']],eveningCallout:'What should I wear?',eveningCalloutText:'Formal wear or a princess outfit. Suggested formal colors are black, white and gray.',
+    visitKicker:'TICKETS & REGISTRATION',visitTitle:'Bring your friends. Book your places.',visitIntro:'Open to all NSYSU students. One person can complete the form for a group of three.',detailsLabels:['Date','Time','Venue','Who can attend'],
+    registrationTitle:'Complete the form, then pay in person',registrationBody:'The registration link and prices will appear here when booking opens.',registrationNote:'Pay cash from December 1 to 4, 12:15 to 13:00, under the bodhi tree in front of the campus vehicle management office. Unpaid registrations will be cancelled.',
+    pricesTitle:'Prices and discounts',priceLabels:['Organizing departments','Other NSYSU students'],priceValues:['NT$500','NT$600'],discountTitle:'Save NT$50 each in a group of three',discountBody:'Students in organizing departments who have paid their department association fee receive another NT$50 discount. Both discounts can be combined, making the eligible price NT$400.',
+    steps:[['Fill in the form','Register individually or as a group of three.'],['Pay in cash','December 1 to 4, 12:15 to 13:00, under the bodhi tree in front of the campus vehicle management office.'],['Arrive at Fullon','Admission on December 24 is from 17:45 to 18:15. The event starts at 18:00.']],
+    locationTitle:'Getting there',locationBody:'The event takes place in the Furong Ballroom. Use the map for directions and the hotel website for travel information.',mapCTA:'Open map',transportCTA:'Hotel travel information',faqTitle:'Before you register',
+    faqs:[['When does registration close?','Registration closes on November 30, 2026. Payment is from December 1 to 4.'],['Can students outside the organizing departments attend?','Yes. Students from organizing departments pay NT$500. Other NSYSU students pay NT$600.'],['Does each person need to fill in the group form?','No. One person completes the form for three students. Each receives a NT$50 discount.'],['Is submitting the form enough?','Payment is also required. Pay cash from December 1 to 4, 12:15 to 13:00, under the bodhi tree in front of the campus vehicle management office. Unpaid registrations will be cancelled.'],['What should I wear?','Formal wear or a princess outfit. Suggested formal colors are black, white and gray.'],['When can I enter?','Admission is from 17:45 to 18:15. The event runs from 18:00 to 21:00.'],['Who can answer my questions?','Message the official Instagram account @serendipity20.26. Refer to the official form and announcements for current rules.'],['Anything else I should know?','The form states that drinks will be available and recommends eating beforehand. No alcohol under age 18. Do not drink and drive. Read the form for venue cleaning fees and other rules.']],
+    partnerKicker:'PARTNERSHIPS',partnerTitle:'Meet students at their Christmas ball',partnerIntro:'Organized by students from seven departments and programs, the event welcomes all NSYSU students. Partnerships can cover the website, Instagram and event publicity.',
+    forecastLabel:'PROPOSAL ESTIMATE',forecastValue:'300–350',forecastUnit:'guests',forecastNote:'Estimated participation in the partnership proposal. This is not a confirmed registration count or historical attendance.',
+    partnerListTitle:'Confirmed partners',partnerEmptyBody:'Brands and partnership details will be published after confirmation.',partnershipTitle:'Partnership options',partnershipBody:'These options come from the proposal. Locations, frequency and deliverables depend on the agreed partnership.',
+    partnershipWays:[['Website placements','Brand banners on the homepage and a partner page with official links.'],['Social content','Brand content on the event Instagram, with copy and timing agreed together.'],['At the event','Discuss stage logos, host mentions or product displays, subject to venue rules and the agreed plan.']],
+    reportTitle:'Receive records of the agreed work',reportBody:'Depending on the agreement, reporting can include published links, website screenshots, event photos, available social metrics, actual attendance and material use records.',contactCTA:'Message us about partnerships',contactPending:'Partnership contact details have not been published.',organizerTitle:'Organizing departments and programs',departments:['Business Management','Electrical Engineering','Biomedical Science','Political Economy','Computer Science','Nursing','IBBA'],footerLine:'NSYSU Christmas Ball 2026',footerStatus:'Refer to official announcements for updates',backTop:'Back to top',imageLink:'Brand website',
   },
 };
+const date=new Date(`${event.dateISO}T12:00:00+08:00`);
+copy.zh.date=new Intl.DateTimeFormat('zh-TW',{year:'numeric',month:'long',day:'numeric',timeZone:event.timezone}).format(date);
+copy.en.date=new Intl.DateTimeFormat('en-US',{year:'numeric',month:'long',day:'numeric',timeZone:event.timezone}).format(date);
+for(const locale of ['zh','en']) copy[locale].meta=locale==='zh'?'2026 中山七系聯合聖誕舞會，12 月 24 日於高雄福容大飯店芙蓉廳舉行。主辦七系學生 500 元，其他中山學生 600 元，三人團報每人折 50 元。查看活動與報名。':'NSYSU Christmas Ball on December 24, 2026 at Fullon Hotel Kaohsiung. Tickets NT$500 or NT$600. Groups of three save NT$50 each. See the program and register.';
 
-// Headings use punctuation-free editorial copy. Event names in prose stay intact.
-for (const locale of ['zh', 'en']) {
-  const t = copy[locale];
-  for (const key of ['homeEyebrow','homeHeading','archiveTitle','homeBannerTitle','eveningTitle','visitTitle','faqTitle','partnerTitle']) {
-    t[key] = t[key].replace(/[，。、,.!?！？]/g, '');
-  }
-  t.heroLine = t.heroLine.map(line => line.replace(/[,，]/g, ''));
-  t.faqs = t.faqs.map(([q,a]) => [q.replace(/[，,?？]/g, ''),a]);
-}
-copy.zh.stages[2][1] = '遊戲抽獎與合舞';
-copy.en.stages[2][1] = 'Games and dancing';
-copy.zh.galleryTitle = '現場照片';
-copy.zh.galleryBody = '活動結束後，我們會在這裡展示當晚的現場照片。';
-copy.en.galleryTitle = 'Photos from the evening';
-copy.en.galleryBody = 'Photos from this year’s event will be shared here after the ball.';
-
-// Keep every public date and time label tied to the same configuration.
-const [year, month, day] = event.dateISO.split('-').map(Number);
-const date = new Date(`${event.dateISO}T12:00:00+08:00`);
-copy.zh.date = `${year} 年 ${month} 月 ${day} 日`;
-copy.en.date = new Intl.DateTimeFormat('en-US',{year:'numeric',month:'long',day:'numeric',timeZone:event.timezone}).format(date);
-copy.zh.dateShort = `${month} 月 ${day} 日・${new Intl.DateTimeFormat('zh-TW',{weekday:'long',timeZone:event.timezone}).format(date)}`;
-copy.en.dateShort = new Intl.DateTimeFormat('en-US',{weekday:'long',month:'long',day:'numeric',timeZone:event.timezone}).format(date);
-copy.zh.time = `${event.start} 至 ${event.end}`;
-copy.en.time = `${event.start} to ${event.end}`;
-copy.zh.faqs[2][1] = `活動時間為 ${copy.zh.time}。報到與開放入場時間將另外公布，請以報名開放後的說明為準。`;
-copy.en.faqs[2][1] = `The event runs from ${copy.en.time}. Check in and admission times will be announced separately when registration opens.`;
-copy.zh.meta = `${event.year} 中山大學七系聯合耶誕晚會。${copy.zh.date} ${copy.zh.time}，於高雄福容大飯店芙蓉廳相聚。查看當晚活動、報名進度與入場資訊。`;
-copy.en.meta = `The ${event.year} NSYSU Christmas Ball. Join us on ${copy.en.date}, from ${copy.en.time} at Fullon Hotel Kaohsiung. Explore the evening, registration updates and admission information.`;
-if (event.registrationURL) {
-  copy.zh.registrationNote = '報名費用、截止時間與入場方式，請以報名頁面的說明為準。';
-  copy.en.registrationNote = 'Please refer to the registration page for prices, deadlines and admission instructions.';
-  copy.zh.visitIntro = '準備一起度過平安夜。請先閱讀報名頁面的費用與入場說明。';
-  copy.en.visitIntro = 'Join us on Christmas Eve. Please read the registration page for prices and admission instructions.';
-  copy.zh.faqs[0][1] = '可以，請點選本頁的報名連結，查看完整資訊並完成報名。';
-  copy.en.faqs[0][1] = 'Yes. Follow the registration link on this page to read the details and book your place.';
+// Keep public date labels and the confirmed registration deadline tied to configuration.
+copy.zh.time=`${event.start} 至 ${event.end}`;
+copy.en.time=`${event.start} to ${event.end}`;
+if(event.registrationDeadline){
+ const cutoff=new Date(`${event.registrationDeadline}T12:00:00+08:00`);
+ const month=cutoff.getUTCMonth()+1,day=cutoff.getUTCDate();
+ copy.zh.deadline=`報名至 ${month} 月 ${day} 日`;
+ copy.en.deadline=`Register by ${new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',timeZone:event.timezone}).format(cutoff)}`;
 }

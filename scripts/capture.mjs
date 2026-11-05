@@ -1,6 +1,6 @@
 import { chromium } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
-const destination='test-results/visual-review';
+const destination='docs/redesign/revision-2';
 await mkdir(destination,{recursive:true});
 const browser=await chromium.launch();
 for(const width of [390,1440]) {
