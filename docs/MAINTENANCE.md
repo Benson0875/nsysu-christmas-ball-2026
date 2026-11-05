@@ -51,3 +51,6 @@ CI 會安裝 Chromium 系統依賴並執行測試。合併到 main 後，原有 
 
 
 行事曆功能已移除，中英文頁面不再提供下載入口，建置亦不產生 event.ics。
+
+
+手機首頁將 hero-heading 與縮小插畫排在第一列，hero-details 占第二列，桌面維持原版面。照片年份與第二張照片共用一列但各自保留空間。Noto 補字檔只含「伴待攜相」四字，來源為 Git 歷史 fe99100 的原始 OFL 字型。需要重製時，可使用含 fonttools、brotli 的 Python 執行 scripts/restore-title-glyphs.py，需保有該版本的 Git 歷史。

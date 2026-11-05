@@ -78,3 +78,18 @@ test('photo reveal honors reduced motion',async({page})=>{
 test('confirmed performers and revised admission stay consistent',async({page})=>{
  await page.goto('evening.html');const program=page.locator('.program-list');await expect(program).toContainText('18:00 至 18:20');for(const name of ['吉他社','勁舞社','舞蹈社','班恩'])await expect(program).toContainText(name);await expect(program).not.toContainText('表演名單確認後公布');await page.goto('visit.html');await expect(page.locator('#registration')).toContainText('18:00 至 18:20');await expect(page.locator('h1')).toHaveText('找好朋友一起來報名');
 });
+
+for(const locale of ['zh','en'])test(`mobile title and compact illustration sit side by side ${locale}`,async({page})=>{
+ for(const width of [320,375,390,430,700]){
+  await page.setViewportSize({width,height:900});await page.goto(`${locale==='en'?'en/':''}index.html`);await page.evaluate(()=>document.fonts.ready);
+  const title=await page.locator('.hero h1').boundingBox(),art=await page.locator('.hero-art').boundingBox();
+  expect(art.y).toBeLessThan(title.y+title.height);expect(art.x).toBeGreaterThanOrEqual(title.x+title.width);expect(art.width).toBeLessThanOrEqual(160);
+ }
+});
+test('mobile archive year has a clear space beside the photo',async({page})=>{
+ for(const width of [320,375,390,430,700]){
+  await page.setViewportSize({width,height:900});await page.goto('index.html');await page.evaluate(()=>document.fonts.ready);await page.emulateMedia({reducedMotion:'reduce'});
+  const year=await page.locator('.gallery-stamp strong').boundingBox(),photo=await page.locator('.archive-small').boundingBox();
+  expect(year.x).toBeGreaterThanOrEqual(0);expect(year.x+year.width+8).toBeLessThanOrEqual(photo.x);
+ }
+});
