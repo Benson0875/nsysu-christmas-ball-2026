@@ -154,3 +154,27 @@ html:lang(en) .hero h1{font-size:clamp(40px,4.2vw,65px);letter-spacing:0;line-he
 /* Keep text fully opaque during entrance motion so its contrast remains stable. */
 @keyframes photo-arrive{from{translate:0 18px}to{translate:0 0}}
 .price-invitation .invitation-heading{color:#67512c}
+/* Mobile cover: keep the illustration beside the title and give details a full row. */
+@media(max-width:700px){
+ .hero{display:grid;grid-template-columns:minmax(0,1fr) clamp(104px,30vw,156px);grid-template-rows:auto auto;gap:18px 14px;align-items:center;padding-block:28px 30px}
+ .hero-copy{display:contents}
+ .hero-heading{grid-column:1;grid-row:1;min-width:0}
+ .hero-heading .eyebrow{font-size:10px;letter-spacing:.08em;line-height:1.8;margin-bottom:12px}
+ .hero-heading h1{font-size:clamp(34px,8.7vw,46px);line-height:1.45;letter-spacing:.03em;margin:0}
+ .hero-details{grid-column:1/-1;grid-row:2}
+ .hero-art{grid-column:2;grid-row:1;align-self:center;justify-self:end;width:100%;max-width:156px;padding:0 7px 9px 0;margin:0}
+ .hero-art>img{aspect-ratio:4/5;object-position:center;border-radius:46% 46% 0 0}
+ .hero-art::after{inset:6px 1px 2px 6px;border-radius:46% 46% 0 0}
+ .hero-art .art-year,.hero-art .date-seal,.hero-art .art-credit{display:none}
+ .hero-details .hero-essential{max-width:none;margin:0;padding-top:17px}
+ .hero-details .hero-actions{margin-top:20px}
+ .hero-details .hero-discount{margin-top:12px}
+ html:lang(en) .hero-heading h1{font-size:clamp(25px,6.7vw,36px);line-height:1.35;letter-spacing:0}
+ .archive-editorial .archive-large{grid-column:1;grid-row:1}
+ .archive-editorial .archive-small{grid-column:1;grid-row:2;width:75%;margin:12px 0 0 auto;justify-self:end}
+ .archive-editorial .gallery-stamp{position:relative;grid-column:1;grid-row:2;align-self:end;justify-self:start;top:auto;right:auto;bottom:auto;left:auto;max-width:20%;margin:0 0 28px;text-align:left;font-size:7px;letter-spacing:.1em;z-index:1}
+ .archive-editorial .gallery-stamp strong{font-size:clamp(20px,6vw,27px);white-space:nowrap}
+}
+@font-face{font-family:Evening Serif Extra;src:url('assets/noto-serif-extra.woff2') format('woff2');font-display:swap;font-weight:400 700;unicode-range:U+4F34,U+5F85,U+651C,U+76F8}
+@font-face{font-family:Evening Sans Extra;src:url('assets/noto-sans-extra.woff2') format('woff2');font-display:swap;font-weight:400 700;unicode-range:U+4F34,U+5F85,U+651C,U+76F8}
+:root{--serif:'Evening Serif','Evening Serif Extra','Noto Serif TC','Songti TC',serif;--sans:'Evening Sans','Evening Sans Extra','Noto Sans TC','PingFang TC',sans-serif}
