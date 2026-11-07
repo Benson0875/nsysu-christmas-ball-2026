@@ -149,6 +149,7 @@ html:lang(en) .hero h1{font-size:clamp(40px,4.2vw,65px);letter-spacing:0;line-he
 .evening-art::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,transparent 65%,rgba(23,34,57,.18) 77%,rgba(23,34,57,.7) 91%,var(--night) 100%)}
 .evening-art .art-triptych{mask-image:linear-gradient(to right,transparent,#000 2%,#000 98%,transparent)}
 .evening-art+.page-intro{position:relative;margin-top:-8px}
+.page-intro .title-phrase{display:inline-block;white-space:nowrap}
 @media(prefers-reduced-motion:no-preference){.intro-star{animation:invitation-star 2.8s ease-in-out both}.cover-ornament{animation:invitation-star 3.2s ease-in-out both}.partner-cover{transition:transform .65s ease}.brand-moment-photo{transition:transform .65s ease}@media(hover:hover){.partner-cover:hover{transform:rotate(0)}.brand-moment-photo:hover{transform:rotate(-.5deg) translateY(-4px)}}}
 @keyframes invitation-star{0%,100%{transform:rotate(0) scale(1)}50%{transform:rotate(12deg) scale(.93)}}
 /* Keep text fully opaque during entrance motion so its contrast remains stable. */
