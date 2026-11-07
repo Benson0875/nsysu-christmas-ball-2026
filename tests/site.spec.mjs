@@ -2,6 +2,23 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdir } from 'node:fs/promises';
 const routes=['index','evening','visit','partners'];
+test('evening heading keeps the full date together at every width',async({page})=>{
+ for(const width of [320,375,390,430,700,768,1440]){
+  await page.setViewportSize({width,height:900});await page.goto('evening.html');await page.evaluate(()=>document.fonts.ready);
+  const lines=await page.locator('h1').evaluate(heading=>{
+   const walker=document.createTreeWalker(heading,NodeFilter.SHOW_TEXT);const rects=[];
+   while(walker.nextNode())for(let i=0;i<walker.currentNode.length;i++){
+    if(/\s/.test(walker.currentNode.textContent[i]))continue;
+    const range=document.createRange();range.setStart(walker.currentNode,i);range.setEnd(walker.currentNode,i+1);
+    rects.push({char:range.toString(),top:Math.round(range.getBoundingClientRect().top)});
+   }
+   return rects;
+  });
+  const date=lines.slice(0,6);expect(date.map(r=>r.char).join('')).toBe('12月24日');
+  expect(new Set(date.map(r=>r.top)).size,`date split at ${width}px`).toBe(1);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+ }
+});
 for(const width of [375,390,768,1440])for(const locale of ['zh','en'])for(const route of routes){
  test(`${locale} ${route} at ${width}px`,async({page})=>{
   await page.setViewportSize({width,height:900});
