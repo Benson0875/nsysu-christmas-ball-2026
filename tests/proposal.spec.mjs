@@ -5,6 +5,8 @@ for(const width of [320,1440])test(`REYS proposal can be read and downloaded at 
  await page.setViewportSize({width,height:900});
  expect((await page.goto('proposals/reys/')).status()).toBe(200);
  await expect(page.locator('h1')).toHaveText('REYS 合作提案');
+ await page.evaluate(()=>document.fonts.ready);
+ expect((await page.request.get('proposals/reys/proposal-extra.woff2')).status()).toBe(200);
  await expect(page.locator('main section')).toHaveCount(5);
  for(const image of await page.locator('main section img').all()){
   await image.scrollIntoViewIfNeeded();
